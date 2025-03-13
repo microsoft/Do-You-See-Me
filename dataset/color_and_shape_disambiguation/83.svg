@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+    <rect width="400" height="400" fill="white"/>
+
+    <!-- hexagon instances -->
+    <g transform="translate(311.7 120.1) rotate(353.1)">
+        <path d="M 0.0 -15.5 L 15.5 -7.8 L 15.5 7.8 L 0.0 15.5 L -15.5 7.8 L -15.5 -7.8 Z" fill="#FFA500" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(127.7 286.5) rotate(250.5)">
+        <path d="M 0.0 -19.8 L 19.8 -9.9 L 19.8 9.9 L 0.0 19.8 L -19.8 9.9 L -19.8 -9.9 Z" fill="#FFFF00" stroke="black" stroke-width="2"/>
+    </g>
+
+    <!-- octagon instances -->
+    <g transform="translate(349.1 293.4) rotate(71.5)">
+        <path d="M -8.0 -16.0 L 8.0 -16.0 L 16.0 -8.0 L 16.0 8.0 L 8.0 16.0 L -8.0 16.0 L -16.0 8.0 L -16.0 -8.0 Z" fill="#808080" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(27.0 252.7) rotate(188.0)">
+        <path d="M -5.6 -11.1 L 5.6 -11.1 L 11.1 -5.6 L 11.1 5.6 L 5.6 11.1 L -5.6 11.1 L -11.1 5.6 L -11.1 -5.6 Z" fill="#800080" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(293.0 304.3) rotate(178.2)">
+        <path d="M -5.8 -11.6 L 5.8 -11.6 L 11.6 -5.8 L 11.6 5.8 L 5.8 11.6 L -5.8 11.6 L -11.6 5.8 L -11.6 -5.8 Z" fill="#FFA500" stroke="black" stroke-width="2"/>
+    </g>
+
+    <!-- cross instances -->
+    <g transform="translate(66.9 234.8) rotate(238.5)">
+        <path d="M -3.6 -7.2 L 3.6 -7.2 L 3.6 -3.6 L 7.2 -3.6 L 7.2 3.6 L 3.6 3.6 L 3.6 7.2 L -3.6 7.2 L -3.6 3.6 L -7.2 3.6 L -7.2 -3.6 L -3.6 -3.6 Z" fill="#800080" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(362.4 39.2) rotate(146.9)">
+        <path d="M -7.9 -15.8 L 7.9 -15.8 L 7.9 -7.9 L 15.8 -7.9 L 15.8 7.9 L 7.9 7.9 L 7.9 15.8 L -7.9 15.8 L -7.9 7.9 L -15.8 7.9 L -15.8 -7.9 L -7.9 -7.9 Z" fill="#808080" stroke="black" stroke-width="2"/>
+    </g>
+
+    <!-- triangle instances -->
+    <g transform="translate(59.5 201.9) rotate(31.6)">
+        <path d="M 0.0 -14.1 L 10.6 7.1 L -10.6 7.1 Z" fill="#800080" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(273.0 116.7) rotate(153.9)">
+        <path d="M 0.0 -14.7 L 11.0 7.4 L -11.0 7.4 Z" fill="#FFA500" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(280.5 59.0) rotate(6.4)">
+        <path d="M 0.0 -24.5 L 18.4 12.3 L -18.4 12.3 Z" fill="#FF0000" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(57.4 322.6) rotate(84.3)">
+        <path d="M 0.0 -22.4 L 16.8 11.2 L -16.8 11.2 Z" fill="#808080" stroke="black" stroke-width="2"/>
+    </g>
+
+    <!-- star instances -->
+    <g transform="translate(251.3 233.4) rotate(136.0)">
+        <path d="M 0.0 -20.7 L 5.2 -6.6 L 20.7 -6.6 L 8.5 2.8 L 13.6 16.9 L 0.0 7.5 L -13.6 16.9 L -8.5 2.8 L -20.7 -6.6 L -5.2 -6.6 Z" fill="#000000" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(161.7 364.6) rotate(235.7)">
+        <path d="M 0.0 -26.2 L 6.5 -8.3 L 26.2 -8.3 L 10.7 3.6 L 17.2 21.4 L 0.0 9.5 L -17.2 21.4 L -10.7 3.6 L -26.2 -8.3 L -6.5 -8.3 Z" fill="#FF0000" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(141.8 102.5) rotate(290.6)">
+        <path d="M 0.0 -26.8 L 6.7 -8.5 L 26.8 -8.5 L 11.0 3.7 L 17.6 21.9 L 0.0 9.7 L -17.6 21.9 L -11.0 3.7 L -26.8 -8.5 L -6.7 -8.5 Z" fill="#FF0000" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(186.8 199.9) rotate(183.2)">
+        <path d="M 0.0 -31.0 L 7.8 -9.9 L 31.0 -9.9 L 12.7 4.2 L 20.4 25.4 L 0.0 11.3 L -20.4 25.4 L -12.7 4.2 L -31.0 -9.9 L -7.8 -9.9 Z" fill="#FF0000" stroke="black" stroke-width="2"/>
+    </g>
+
+    <!-- pentagon instances -->
+    <g transform="translate(284.7 177.6) rotate(292.0)">
+        <path d="M 0.0 -18.2 L 17.1 -6.8 L 11.4 16.0 L -11.4 16.0 L -17.1 -6.8 Z" fill="#808080" stroke="black" stroke-width="2"/>
+    </g>
+</svg>

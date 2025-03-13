@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+    <rect width="400" height="400" fill="white"/>
+
+    <!-- hexagon instances -->
+    <g transform="translate(203.0 156.1) rotate(25.2)">
+        <path d="M 0.0 -23.6 L 23.6 -11.8 L 23.6 11.8 L 0.0 23.6 L -23.6 11.8 L -23.6 -11.8 Z" fill="#FFFF00" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(234.2 270.3) rotate(151.5)">
+        <path d="M 0.0 -9.5 L 9.5 -4.8 L 9.5 4.8 L 0.0 9.5 L -9.5 4.8 L -9.5 -4.8 Z" fill="#FFA500" stroke="black" stroke-width="2"/>
+    </g>
+
+    <!-- pentagon instances -->
+    <g transform="translate(263.8 319.7) rotate(220.8)">
+        <path d="M 0.0 -16.8 L 15.8 -6.3 L 10.5 14.7 L -10.5 14.7 L -15.8 -6.3 Z" fill="#800080" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(323.9 87.4) rotate(327.5)">
+        <path d="M 0.0 -16.4 L 15.4 -6.2 L 10.3 14.4 L -10.3 14.4 L -15.4 -6.2 Z" fill="#808080" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(133.0 295.6) rotate(83.8)">
+        <path d="M 0.0 -10.7 L 10.0 -4.0 L 6.7 9.4 L -6.7 9.4 L -10.0 -4.0 Z" fill="#000000" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(130.7 254.7) rotate(88.9)">
+        <path d="M 0.0 -11.0 L 10.3 -4.1 L 6.9 9.6 L -6.9 9.6 L -10.3 -4.1 Z" fill="#FFA500" stroke="black" stroke-width="2"/>
+    </g>
+
+    <!-- triangle instances -->
+    <g transform="translate(94.1 92.9) rotate(131.7)">
+        <path d="M 0.0 -29.3 L 22.0 14.7 L -22.0 14.7 Z" fill="#808080" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(349.2 332.9) rotate(223.3)">
+        <path d="M 0.0 -21.0 L 15.7 10.5 L -15.7 10.5 Z" fill="#000000" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(30.4 236.5) rotate(72.4)">
+        <path d="M 0.0 -18.0 L 13.5 9.0 L -13.5 9.0 Z" fill="#0000FF" stroke="black" stroke-width="2"/>
+    </g>
+
+    <!-- cross instances -->
+    <g transform="translate(365.6 145.2) rotate(257.1)">
+        <path d="M -6.9 -13.8 L 6.9 -13.8 L 6.9 -6.9 L 13.8 -6.9 L 13.8 6.9 L 6.9 6.9 L 6.9 13.8 L -6.9 13.8 L -6.9 6.9 L -13.8 6.9 L -13.8 -6.9 L -6.9 -6.9 Z" fill="#00FF00" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(66.4 363.5) rotate(304.8)">
+        <path d="M -9.4 -18.8 L 9.4 -18.8 L 9.4 -9.4 L 18.8 -9.4 L 18.8 9.4 L 9.4 9.4 L 9.4 18.8 L -9.4 18.8 L -9.4 9.4 L -18.8 9.4 L -18.8 -9.4 L -9.4 -9.4 Z" fill="#00FF00" stroke="black" stroke-width="2"/>
+    </g>
+</svg>

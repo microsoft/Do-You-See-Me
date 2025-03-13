@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+    <rect width="400" height="400" fill="white"/>
+
+    <!-- hexagon instances -->
+    <g transform="translate(113.2 103.2) rotate(116.0)">
+        <path d="M 0.0 -28.5 L 28.5 -14.2 L 28.5 14.2 L 0.0 28.5 L -28.5 14.2 L -28.5 -14.2 Z" fill="#800080" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(270.3 275.6) rotate(303.5)">
+        <path d="M 0.0 -35.4 L 35.4 -17.7 L 35.4 17.7 L 0.0 35.4 L -35.4 17.7 L -35.4 -17.7 Z" fill="#0000FF" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(277.1 174.3) rotate(334.5)">
+        <path d="M 0.0 -38.2 L 38.2 -19.1 L 38.2 19.1 L 0.0 38.2 L -38.2 19.1 L -38.2 -19.1 Z" fill="#0000FF" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(366.7 275.6) rotate(257.1)">
+        <path d="M 0.0 -18.5 L 18.5 -9.3 L 18.5 9.3 L 0.0 18.5 L -18.5 9.3 L -18.5 -9.3 Z" fill="#FF0000" stroke="black" stroke-width="2"/>
+    </g>
+
+    <!-- octagon instances -->
+    <g transform="translate(62.4 273.6) rotate(175.1)">
+        <path d="M -11.7 -23.3 L 11.7 -23.3 L 23.3 -11.7 L 23.3 11.7 L 11.7 23.3 L -11.7 23.3 L -23.3 11.7 L -23.3 -11.7 Z" fill="#FFA500" stroke="black" stroke-width="2"/>
+    </g>
+</svg>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+    <rect width="400" height="400" fill="white"/>
+
+    <!-- triangle instances -->
+    <g transform="translate(320.9 211.8) rotate(298.4)">
+        <path d="M 0.0 -84.6 L 63.4 42.3 L -63.4 42.3 Z" fill="#00FF00" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(174.8 174.9) rotate(155.5)">
+        <path d="M 0.0 -51.5 L 38.7 25.8 L -38.7 25.8 Z" fill="#800080" stroke="black" stroke-width="2"/>
+    </g>
+
+    <!-- cross instances -->
+    <g transform="translate(59.8 45.4) rotate(334.4)">
+        <path d="M -16.9 -33.7 L 16.9 -33.7 L 16.9 -16.9 L 33.7 -16.9 L 33.7 16.9 L 16.9 16.9 L 16.9 33.7 L -16.9 33.7 L -16.9 16.9 L -33.7 16.9 L -33.7 -16.9 L -16.9 -16.9 Z" fill="#808080" stroke="black" stroke-width="2"/>
+    </g>
+</svg>

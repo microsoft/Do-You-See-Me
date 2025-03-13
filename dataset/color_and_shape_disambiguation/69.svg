@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+    <rect width="400" height="400" fill="white"/>
+
+    <!-- pentagon instances -->
+    <g transform="translate(256.1 371.9) rotate(221.6)">
+        <path d="M 0.0 -12.3 L 11.5 -4.6 L 7.7 10.7 L -7.7 10.7 L -11.5 -4.6 Z" fill="#FF0000" stroke="black" stroke-width="2"/>
+    </g>
+
+    <!-- star instances -->
+    <g transform="translate(136.4 271.5) rotate(16.3)">
+        <path d="M 0.0 -26.7 L 6.7 -8.5 L 26.7 -8.5 L 10.9 3.6 L 17.6 21.9 L 0.0 9.7 L -17.6 21.9 L -10.9 3.6 L -26.7 -8.5 L -6.7 -8.5 Z" fill="#FFFF00" stroke="black" stroke-width="2"/>
+    </g>
+
+    <!-- octagon instances -->
+    <g transform="translate(120.2 358.9) rotate(219.6)">
+        <path d="M -12.7 -25.3 L 12.7 -25.3 L 25.3 -12.7 L 25.3 12.7 L 12.7 25.3 L -12.7 25.3 L -25.3 12.7 L -25.3 -12.7 Z" fill="#0000FF" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(315.1 225.0) rotate(124.0)">
+        <path d="M -6.9 -13.9 L 6.9 -13.9 L 13.9 -6.9 L 13.9 6.9 L 6.9 13.9 L -6.9 13.9 L -13.9 6.9 L -13.9 -6.9 Z" fill="#FFFF00" stroke="black" stroke-width="2"/>
+    </g>
+
+    <!-- hexagon instances -->
+    <g transform="translate(143.5 109.9) rotate(153.5)">
+        <path d="M 0.0 -18.2 L 18.2 -9.1 L 18.2 9.1 L 0.0 18.2 L -18.2 9.1 L -18.2 -9.1 Z" fill="#00FF00" stroke="black" stroke-width="2"/>
+    </g>
+
+    <!-- cross instances -->
+    <g transform="translate(243.2 223.3) rotate(300.9)">
+        <path d="M -15.0 -30.0 L 15.0 -30.0 L 15.0 -15.0 L 30.0 -15.0 L 30.0 15.0 L 15.0 15.0 L 15.0 30.0 L -15.0 30.0 L -15.0 15.0 L -30.0 15.0 L -30.0 -15.0 L -15.0 -15.0 Z" fill="#800080" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(218.8 61.6) rotate(64.4)">
+        <path d="M -15.4 -30.9 L 15.4 -30.9 L 15.4 -15.4 L 30.9 -15.4 L 30.9 15.4 L 15.4 15.4 L 15.4 30.9 L -15.4 30.9 L -15.4 15.4 L -30.9 15.4 L -30.9 -15.4 L -15.4 -15.4 Z" fill="#FF0000" stroke="black" stroke-width="2"/>
+    </g>
+
+    <!-- triangle instances -->
+    <g transform="translate(82.0 164.1) rotate(197.9)">
+        <path d="M 0.0 -38.8 L 29.1 19.4 L -29.1 19.4 Z" fill="#800080" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(339.3 120.4) rotate(250.1)">
+        <path d="M 0.0 -36.3 L 27.2 18.2 L -27.2 18.2 Z" fill="#808080" stroke="black" stroke-width="2"/>
+    </g>
+</svg>

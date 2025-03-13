@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1065" height="165" xmlns="http://www.w3.org/2000/svg">
+    <!-- White background -->
+    <rect width="1065" height="165" fill="white"/>
+    <rect x="20" y="0" 
+            width="165" height="165" 
+            fill="none" stroke="black" stroke-width="3"/>
+    <rect x="20" y="0" 
+                        width="50" height="50" 
+                        fill="white" stroke="black" stroke-width="2"/>
+    <polygon points="100.0,0 75,50 125,50"
+                        fill="white" stroke="black" stroke-width="2"/>
+    <polygon points="155.0,0 130,50 180,50"
+                        fill="black" stroke="black" stroke-width="2"/>
+    <circle cx="45.0" cy="80.0" r="25.0"
+                        fill="black" stroke="black" stroke-width="2"/>
+    <rect x="75" y="55" 
+                        width="50" height="50" 
+                        fill="white" stroke="black" stroke-width="2"/>
+    <circle cx="155.0" cy="80.0" r="25.0"
+                        fill="white" stroke="black" stroke-width="2"/>
+    <polygon points="45.0,110 20,160 70,160"
+                        fill="white" stroke="black" stroke-width="2"/>
+    <circle cx="100.0" cy="135.0" r="25.0"
+                        fill="white" stroke="black" stroke-width="2"/>
+    <polygon points="155.0,110 130,160 180,160"
+                        fill="black" stroke="black" stroke-width="2"/>
+    <rect x="235" y="0" 
+            width="165" height="165" 
+            fill="none" stroke="black" stroke-width="3"/>
+    <polygon points="260.0,0 235,50 285,50"
+                        fill="white" stroke="black" stroke-width="2"/>
+    <rect x="290" y="0" 
+                        width="50" height="50" 
+                        fill="black" stroke="black" stroke-width="2"/>
+    <rect x="345" y="0" 
+                        width="50" height="50" 
+                        fill="black" stroke="black" stroke-width="2"/>
+    <polygon points="260.0,55 235,105 285,105"
+                        fill="black" stroke="black" stroke-width="2"/>
+    <rect x="290" y="55" 
+                        width="50" height="50" 
+                        fill="black" stroke="black" stroke-width="2"/>
+    <circle cx="370.0" cy="80.0" r="25.0"
+                        fill="white" stroke="black" stroke-width="2"/>
+    <polygon points="260.0,110 235,160 285,160"
+                        fill="white" stroke="black" stroke-width="2"/>
+    <polygon points="315.0,110 290,160 340,160"
+                        fill="black" stroke="black" stroke-width="2"/>
+    <rect x="345" y="110" 
+                        width="50" height="50" 
+                        fill="white" stroke="black" stroke-width="2"/>
+    <rect x="450" y="0" 
+            width="165" height="165" 
+            fill="none" stroke="black" stroke-width="3"/>
+    <circle cx="475.0" cy="25.0" r="25.0"
+                        fill="white" stroke="black" stroke-width="2"/>
+    <circle cx="530.0" cy="25.0" r="25.0"
+                        fill="white" stroke="black" stroke-width="2"/>
+    <rect x="560" y="0" 
+                        width="50" height="50" 
+                        fill="black" stroke="black" stroke-width="2"/>
+    <circle cx="475.0" cy="80.0" r="25.0"
+                        fill="black" stroke="black" stroke-width="2"/>
+    <polygon points="530.0,55 505,105 555,105"
+                        fill="white" stroke="black" stroke-width="2"/>
+    <circle cx="585.0" cy="80.0" r="25.0"
+                        fill="black" stroke="black" stroke-width="2"/>
+    <polygon points="475.0,110 450,160 500,160"
+                        fill="white" stroke="black" stroke-width="2"/>
+    <polygon points="530.0,110 505,160 555,160"
+                        fill="white" stroke="black" stroke-width="2"/>
+    <circle cx="585.0" cy="135.0" r="25.0"
+                        fill="white" stroke="black" stroke-width="2"/>
+    <rect x="665" y="0" 
+            width="165" height="165" 
+            fill="none" stroke="black" stroke-width="3"/>
+    <rect x="665" y="0" 
+                        width="50" height="50" 
+                        fill="black" stroke="black" stroke-width="2"/>
+    <circle cx="745.0" cy="25.0" r="25.0"
+                        fill="white" stroke="black" stroke-width="2"/>
+    <polygon points="800.0,0 775,50 825,50"
+                        fill="black" stroke="black" stroke-width="2"/>
+    <circle cx="690.0" cy="80.0" r="25.0"
+                        fill="white" stroke="black" stroke-width="2"/>
+    <circle cx="745.0" cy="80.0" r="25.0"
+                        fill="white" stroke="black" stroke-width="2"/>
+    <polygon points="800.0,55 775,105 825,105"
+                        fill="black" stroke="black" stroke-width="2"/>
+    <polygon points="690.0,110 665,160 715,160"
+                        fill="white" stroke="black" stroke-width="2"/>
+    <rect x="720" y="110" 
+                        width="50" height="50" 
+                        fill="white" stroke="black" stroke-width="2"/>
+    <polygon points="800.0,110 775,160 825,160"
+                        fill="white" stroke="black" stroke-width="2"/>
+    <rect x="880" y="0" 
+            width="165" height="165" 
+            fill="none" stroke="black" stroke-width="3"/>
+    <polygon points="905.0,0 880,50 930,50"
+                        fill="white" stroke="black" stroke-width="2"/>
+    <rect x="935" y="0" 
+                        width="50" height="50" 
+                        fill="black" stroke="black" stroke-width="2"/>
+    <polygon points="1015.0,0 990,50 1040,50"
+                        fill="black" stroke="black" stroke-width="2"/>
+    <polygon points="905.0,55 880,105 930,105"
+                        fill="white" stroke="black" stroke-width="2"/>
+    <polygon points="960.0,55 935,105 985,105"
+                        fill="black" stroke="black" stroke-width="2"/>
+    <rect x="990" y="55" 
+                        width="50" height="50" 
+                        fill="black" stroke="black" stroke-width="2"/>
+    <polygon points="905.0,110 880,160 930,160"
+                        fill="black" stroke="black" stroke-width="2"/>
+    <rect x="935" y="110" 
+                        width="50" height="50" 
+                        fill="black" stroke="black" stroke-width="2"/>
+    <polygon points="1015.0,110 990,160 1040,160"
+                        fill="black" stroke="black" stroke-width="2"/>
+</svg>

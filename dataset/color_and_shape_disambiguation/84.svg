@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+    <rect width="400" height="400" fill="white"/>
+
+    <!-- cross instances -->
+    <g transform="translate(223.0 35.3) rotate(159.9)">
+        <path d="M -6.6 -13.3 L 6.6 -13.3 L 6.6 -6.6 L 13.3 -6.6 L 13.3 6.6 L 6.6 6.6 L 6.6 13.3 L -6.6 13.3 L -6.6 6.6 L -13.3 6.6 L -13.3 -6.6 L -6.6 -6.6 Z" fill="#00FF00" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(89.5 381.6) rotate(206.8)">
+        <path d="M -4.1 -8.2 L 4.1 -8.2 L 4.1 -4.1 L 8.2 -4.1 L 8.2 4.1 L 4.1 4.1 L 4.1 8.2 L -4.1 8.2 L -4.1 4.1 L -8.2 4.1 L -8.2 -4.1 L -4.1 -4.1 Z" fill="#FFA500" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(283.6 181.7) rotate(337.6)">
+        <path d="M -5.0 -10.0 L 5.0 -10.0 L 5.0 -5.0 L 10.0 -5.0 L 10.0 5.0 L 5.0 5.0 L 5.0 10.0 L -5.0 10.0 L -5.0 5.0 L -10.0 5.0 L -10.0 -5.0 L -5.0 -5.0 Z" fill="#FF0000" stroke="black" stroke-width="2"/>
+    </g>
+
+    <!-- star instances -->
+    <g transform="translate(344.4 283.2) rotate(168.9)">
+        <path d="M 0.0 -22.1 L 5.5 -7.0 L 22.1 -7.0 L 9.0 3.0 L 14.6 18.1 L 0.0 8.0 L -14.6 18.1 L -9.0 3.0 L -22.1 -7.0 L -5.5 -7.0 Z" fill="#00FF00" stroke="black" stroke-width="2"/>
+    </g>
+
+    <!-- triangle instances -->
+    <g transform="translate(67.1 307.7) rotate(196.0)">
+        <path d="M 0.0 -20.5 L 15.4 10.3 L -15.4 10.3 Z" fill="#808080" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(211.0 254.9) rotate(260.0)">
+        <path d="M 0.0 -19.0 L 14.2 9.5 L -14.2 9.5 Z" fill="#FF0000" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(340.4 182.8) rotate(299.0)">
+        <path d="M 0.0 -17.5 L 13.1 8.7 L -13.1 8.7 Z" fill="#FF0000" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(125.6 282.4) rotate(24.4)">
+        <path d="M 0.0 -15.8 L 11.8 7.9 L -11.8 7.9 Z" fill="#0000FF" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(165.6 85.4) rotate(274.2)">
+        <path d="M 0.0 -16.0 L 12.0 8.0 L -12.0 8.0 Z" fill="#00FF00" stroke="black" stroke-width="2"/>
+    </g>
+
+    <!-- octagon instances -->
+    <g transform="translate(262.1 250.0) rotate(32.7)">
+        <path d="M -7.0 -14.0 L 7.0 -14.0 L 14.0 -7.0 L 14.0 7.0 L 7.0 14.0 L -7.0 14.0 L -14.0 7.0 L -14.0 -7.0 Z" fill="#FFA500" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(51.6 128.9) rotate(81.4)">
+        <path d="M -8.6 -17.2 L 8.6 -17.2 L 17.2 -8.6 L 17.2 8.6 L 8.6 17.2 L -8.6 17.2 L -17.2 8.6 L -17.2 -8.6 Z" fill="#808080" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(63.8 252.3) rotate(276.4)">
+        <path d="M -3.4 -6.9 L 3.4 -6.9 L 6.9 -3.4 L 6.9 3.4 L 3.4 6.9 L -3.4 6.9 L -6.9 3.4 L -6.9 -3.4 Z" fill="#808080" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(161.0 191.6) rotate(138.7)">
+        <path d="M -4.4 -8.8 L 4.4 -8.8 L 8.8 -4.4 L 8.8 4.4 L 4.4 8.8 L -4.4 8.8 L -8.8 4.4 L -8.8 -4.4 Z" fill="#808080" stroke="black" stroke-width="2"/>
+    </g>
+
+    <!-- pentagon instances -->
+    <g transform="translate(265.3 39.1) rotate(264.6)">
+        <path d="M 0.0 -16.4 L 15.3 -6.1 L 10.2 14.3 L -10.2 14.3 L -15.3 -6.1 Z" fill="#808080" stroke="black" stroke-width="2"/>
+    </g>
+
+    <!-- hexagon instances -->
+    <g transform="translate(366.6 115.9) rotate(76.3)">
+        <path d="M 0.0 -14.3 L 14.3 -7.2 L 14.3 7.2 L 0.0 14.3 L -14.3 7.2 L -14.3 -7.2 Z" fill="#FF0000" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(121.3 329.6) rotate(328.5)">
+        <path d="M 0.0 -15.1 L 15.1 -7.5 L 15.1 7.5 L 0.0 15.1 L -15.1 7.5 L -15.1 -7.5 Z" fill="#FFFF00" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(214.8 288.6) rotate(167.0)">
+        <path d="M 0.0 -8.6 L 8.6 -4.3 L 8.6 4.3 L 0.0 8.6 L -8.6 4.3 L -8.6 -4.3 Z" fill="#000000" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(71.6 197.4) rotate(311.7)">
+        <path d="M 0.0 -17.4 L 17.4 -8.7 L 17.4 8.7 L 0.0 17.4 L -17.4 8.7 L -17.4 -8.7 Z" fill="#800080" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(231.9 163.6) rotate(287.2)">
+        <path d="M 0.0 -13.1 L 13.1 -6.6 L 13.1 6.6 L 0.0 13.1 L -13.1 6.6 L -13.1 -6.6 Z" fill="#FF0000" stroke="black" stroke-width="2"/>
+    </g>
+    <g transform="translate(212.6 121.4) rotate(334.2)">
+        <path d="M 0.0 -11.5 L 11.5 -5.7 L 11.5 5.7 L 0.0 11.5 L -11.5 5.7 L -11.5 -5.7 Z" fill="#FFFF00" stroke="black" stroke-width="2"/>
+    </g>
+</svg>

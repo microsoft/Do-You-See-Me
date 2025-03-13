@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+    <rect width="400" height="400" fill="white"/>
+
+    <!-- triangle instances -->
+    <g transform="translate(61.5 353.1) rotate(156.4)">
+        <path d="M 0.0 -45.9 L 34.4 23.0 L -34.4 23.0 Z" fill="#FFFF00" stroke="black" stroke-width="2"/>
+    </g>
+
+    <!-- hexagon instances -->
+    <g transform="translate(321.3 350.4) rotate(84.9)">
+        <path d="M 0.0 -33.3 L 33.3 -16.6 L 33.3 16.6 L 0.0 33.3 L -33.3 16.6 L -33.3 -16.6 Z" fill="#800080" stroke="black" stroke-width="2"/>
+    </g>
+</svg>

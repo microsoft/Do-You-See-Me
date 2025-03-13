@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="205" height="165" xmlns="http://www.w3.org/2000/svg">
+    <!-- White background -->
+    <rect width="205" height="165" fill="white"/>
+    <rect x="20" y="0" 
+            width="165" height="165" 
+            fill="none" stroke="black" stroke-width="3"/>
+    <rect x="20" y="0" 
+                        width="50" height="50" 
+                        fill="black" stroke="black" stroke-width="2"/>
+    <polygon points="100.0,0 75,50 125,50"
+                        fill="white" stroke="black" stroke-width="2"/>
+    <rect x="130" y="0" 
+                        width="50" height="50" 
+                        fill="white" stroke="black" stroke-width="2"/>
+    <circle cx="45.0" cy="80.0" r="25.0"
+                        fill="white" stroke="black" stroke-width="2"/>
+    <circle cx="100.0" cy="80.0" r="25.0"
+                        fill="white" stroke="black" stroke-width="2"/>
+    <rect x="130" y="55" 
+                        width="50" height="50" 
+                        fill="white" stroke="black" stroke-width="2"/>
+    <polygon points="45.0,110 20,160 70,160"
+                        fill="black" stroke="black" stroke-width="2"/>
+    <polygon points="100.0,110 75,160 125,160"
+                        fill="white" stroke="black" stroke-width="2"/>
+    <circle cx="155.0" cy="135.0" r="25.0"
+                        fill="white" stroke="black" stroke-width="2"/>
+</svg>
