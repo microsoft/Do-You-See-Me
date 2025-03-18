@@ -58,7 +58,7 @@ This repository contains a synthetic dataset exploring seven distinct dimensions
 
 ## Dataset Structure
 
-The repository is organized into dimension-specific directories:
+The repository is organized into 7 dimension-specific directories:
 - dataset/visual_spatial
 - dataset/visual_figure_ground
 - dataset/visual_form_constancy
@@ -66,6 +66,10 @@ The repository is organized into dimension-specific directories:
 - dataset/shape_color_discrimination
 - dataset/letter_disambiguation
 - dataset/visual_closure
+
+In order to use our synthetic data generation for the visual-perception dimensions, simply run any of the 7 python files in the main repo named as: *<dimension-name>.py*. Each python file has a control towards the end, where sweeps are defined for each control parameter listed in **Table 1**, these can be changed to increase data. For 1) visual_spatial, 2) shape_disambiguation, and 3) shape_color_discrimination a *dataset_dump.csv* is created in related directory, this dump file captures all the details for each generated image, we then use a *dataset_creator.py* file (added in all the three dirs) to generate the actual dataset (dataset_info.csv), where multiple perception questions are formulated per image (refer the dataset_creator.py to change number of questions per image). Each visual-perception dim has a dataset_info.csv containing filename, question, answer, and sweep column. 
+
+We have created a dataset of around 2.1k images used and benchmarked multiple open and closed source MLLMs, performance of MLLMs is presented in the **Results** section. This benchmark dataset is released as a zip file named *dataset.zip* in the main folder.
 
 ## Data Format
 
