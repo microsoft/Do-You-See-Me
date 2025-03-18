@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoYouSeeMe - Visual Perception Benchmark for MLLMs</title>
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --gray-color: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+        
+        .nav-links li {
+            margin-left: 25px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        section p {
+            margin-bottom: 20px;
+        }
+        
+        .main-figure {
+            width: 100%;
+            margin: 30px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .dimensions {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .dimension-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .dimension-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .dimension-card h3 {
+            padding: 20px;
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .dimension-card p {
+            padding: 20px;
+        }
+        
+        .samples {
+            padding: 20px;
+        }
+        
+        .samples-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        
+        .samples-grid img {
+            width: 100%;
+            border-radius: 4px;
+        }
+        
+        .sample-question {
+            font-style: italic;
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+        }
+        
+        .results-section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .cta {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .dimensions {
+                grid-template-columns: 1fr;
+            }
+            
+            .samples-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>DoYouSeeMe</h1>
+            <p>A comprehensive benchmark for evaluating visual perception capabilities in Machine Learning Language Models (MLLMs)</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">DoYouSeeMe</div>
+            <ul class="nav-links">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#dimensions">Dimensions</a></li>
+                <li><a href="#results">Results</a></li>
+                <li><a href="#samples">Samples</a></li>
+                <li><a href="https://github.com/adi-msr/DoYouSeeMe" target="_blank">GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section id="overview">
+        <div class="container">
+            <h2>Overview</h2>
+            <p>The DoYouSeeMe benchmark is a comprehensive evaluation framework designed to assess visual perception capabilities in Machine Learning Language Models (MLLMs). This fully automated test suite dynamically generates both visual stimuli and perception-focused questions (VPQA) with incremental difficulty levels, enabling a graded evaluation of MLLM performance across multiple perceptual dimensions.</p>
+            
+            <img src="https://github.com/adi-msr/DoYouSeeMe/raw/main/img/main_fig.png" alt="DoYouSeeMe Main Figure" class="main-figure">
+            
+            <h3>Theoretical Foundation</h3>
+            <p>The dataset's structure is grounded in established human psychological frameworks that categorize visual perception into core abilities (Chalfant and Scheffelin, 1969). Drawing inspiration from standardized assessments like the Test of Visual Perception Skills (TVPS) (Gardner, 1988) and Motor-Free Visual Perception Test (MVPT) (Colarusso, 2003), DoYouSeeMe adapts these principles to create a systematic evaluation methodology for machine vision systems.</p>
+            
+            <h3>Technical Implementation</h3>
+            <p>The entire dataset generation framework is implemented in Python and uses SVG representations to create visual stimuli with precisely controlled parameters. This approach allows for dynamic generation of test images with systematic variations, controlled difficulty progression across perception dimensions, reproducible evaluation conditions, and fine-grained assessment of model performance.</p>
+            
+            <img src="https://github.com/adi-msr/DoYouSeeMe/raw/main/img/control_param_syn_dataset.png" alt="Control Parameters" class="main-figure">
+            
+            <div class="cta">
+                <a href="https://github.com/adi-msr/DoYouSeeMe" class="btn" target="_blank">View on GitHub</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="dimensions">
+        <div class="container">
+            <h2>Perceptual Dimensions</h2>
+            <p>The benchmark focuses on seven key dimensions of visual perception:</p>
+            
+            <div class="dimensions">
+                <div class="dimension-card">
+                    <h3>Shape Discrimination</h3>
+                    <p>Evaluates the ability to recognize shapes.</p>
+                </div>
+                
+                <div class="dimension-card">
+                    <h3>Joint Shape-Color Discrimination</h3>
+                    <p>Evaluates the ability to jointly recognize shapes and color.</p>
+                </div>
+                
+                <div class="dimension-card">
+                    <h3>Visual Form Constancy</h3>
+                    <p>Tests MLLM ability to identify a test shape configuration from similarly placed distractors.</p>
+                </div>
+                
+                <div class="dimension-card">
+                    <h3>Letter Disambiguation</h3>
+                    <p>Tests the recognition of letters.</p>
+                </div>
+                
+                <div class="dimension-card">
+                    <h3>Visual Figure-Ground</h3>
+                    <p>Evaluates the ability to distinguish the main object from its background under varying conditions.</p>
+                </div>
+                
+                <div class="dimension-card">
+                    <h3>Visual Closure</h3>
+                    <p>Assesses the ability to complete partially obscured shapes by mentally filling in missing information.</p>
+                </div>
+                
+                <div class="dimension-card">
+                    <h3>Visual Spatial</h3>
+                    <p>Examines the ability to perceive positions of objects relative to oneself and to other objects.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="results">
+        <div class="container">
+            <h2>Results</h2>
+            <div class="results-section">
+                <p>We have benchmarked multiple open and closed source MLLMs on our dataset of around 2.1k images. The performance results are presented below:</p>
+                <img src="https://github.com/adi-msr/DoYouSeeMe/raw/main/img/results_syn_dataset.png" alt="Results on DoYouSeeMe" style="width: 100%; margin-top: 20px;">
+            </div>
+        </div>
+    </section>
+    
+    <section id="samples">
+        <div class="container">
+            <h2>Sample Dimensions</h2>
+            
+            <div class="dimension-card">
+                <h3>Visual Spatial</h3>
+                <p>Tests the ability to perceive and understand spatial relationships between objects. Evaluates orientation discrimination and positional awareness.</p>
+                <div class="samples">
+                    <div class="samples-grid">
+                        <img src="https://github.com/adi-msr/DoYouSeeMe/raw/main/dataset/visual_spatial/1.png" alt="Visual Spatial Example 1">
+                        <img src="https://github.com/adi-msr/DoYouSeeMe/raw/main/dataset/visual_spatial/50.png" alt="Visual Spatial Example 2">
+                        <img src="https://github.com/adi-msr/DoYouSeeMe/raw/main/dataset/visual_spatial/100.png" alt="Visual Spatial Example 3">
+                    </div>
+                    <div class="sample-question">
+                        Sample Question: Starting from the black circle at position (row 1, column 3), how many triangles are there bottom of it in the same row?
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dimension-card" style="margin-top: 30px;">
+                <h3>Visual Figure-Ground</h3>
+                <p>Examines the ability to distinguish an object from its background. Challenges perception by varying contrast, noise, and complexity.</p>
+                <div class="samples">
+                    <div class="samples-grid">
+                        <img src="https://github.com/adi-msr/DoYouSeeMe/raw/main/dataset/visual_figure_ground/1.png" alt="Figure-Ground Example 1">
+                        <img src="https://github.com/adi-msr/DoYouSeeMe/raw/main/dataset/visual_figure_ground/50.png" alt="Figure-Ground Example 2">
+                        <img src="https://github.com/adi-msr/DoYouSeeMe/raw/main/dataset/visual_figure_ground/89.png" alt="Figure-Ground Example 3">
+                    </div>
+                    <div class="sample-question">
+                        Sample Question: The figure consists of a Target image, which is embedded in some background noise. Out of the four given options, your task is to pick the option which has the same figure as the target image. Respond as follows: Option &lt;your answer (choose between 1, 2, 3, or 4)&gt;.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dimension-card" style="margin-top: 30px;">
+                <h3>Visual Form Constancy</h3>
+                <p>Assesses recognition of shapes despite changes in size, orientation, or context. Tests invariance in visual perception.</p>
+                <div class="samples">
+                    <div class="samples-grid">
+                        <img src="https://github.com/adi-msr/DoYouSeeMe/raw/main/dataset/visual_form_constancy/1.png" alt="Form Constancy Example 1">
+                        <img src="https://github.com/adi-msr/DoYouSeeMe/raw/main/dataset/visual_form_constancy/50.png" alt="Form Constancy Example 2">
+                        <img src="https://github.com/adi-msr/DoYouSeeMe/raw/main/dataset/visual_form_constancy/100.png" alt="Form Constancy Example 3">
+                    </div>
+                    <div class="sample-question">
+                        Sample Question: The figure consists of a Target image. Out of the four given options, your task is to pick the option which has the same figure as the target image. Respond as follows: Option &lt;your answer (choose between 1, 2, 3, or 4)&gt;.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dimension-card" style="margin-top: 30px;">
+                <h3>Shape Disambiguation</h3>
+                <p>Challenges the ability to identify ambiguous shapes that can be interpreted in multiple ways. Explores perceptual flexibility.</p>
+                <div class="samples">
+                    <div class="samples-grid">
+                        <img src="https://github.com/adi-msr/DoYouSeeMe/raw/main/dataset/geometric_dataset/sweep_0_0.png" alt="Shape Disambiguation Example 1">
+                        <img src="https://github.com/adi-msr/DoYouSeeMe/raw/main/dataset/geometric_dataset/sweep_10_0.png" alt="Shape Disambiguation Example 2">
+                        <img src="https://github.com/adi-msr/DoYouSeeMe/raw/main/dataset/geometric_dataset/sweep_20_2.png" alt="Shape Disambiguation Example 3">
+                    </div>
+                    <div class="sample-question">
+                        Sample Question: Count the total number of triangles in the image, including each concentric triangle separately. For example, if there is one triangle with 2 inner concentric rings, that counts as 3 triangles. Respond with only a number.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cta">
+                <a href="https://github.com/adi-msr/DoYouSeeMe" class="btn" target="_blank">Explore Full Dataset</a>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>DoYouSeeMe - A Visual Perception Benchmark for MLLMs</p>
+            <p>This project has adopted the <a href="https://opensource.microsoft.com/codeofconduct/" style="color: white; text-decoration: underline;">Microsoft Open Source Code of Conduct</a></p>
+            <p>&copy; 2025</p>
+        </div>
+    </footer>
+</body>
+</html>
