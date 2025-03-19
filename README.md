@@ -1,7 +1,4 @@
 # DoYouSeeMe
-
-
-
 <div style="display: flex; justify-content: space-between;">
   <img src="img/main_fig.png" width="100%" alt="Results on Do You See Me">
 </div>
