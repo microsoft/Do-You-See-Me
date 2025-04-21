@@ -1,437 +1,448 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Do You See Me - Visual Perception Benchmark for MLLMs</title>
-    <style>
-        :root {
-            --primary-color: #4361ee;
-            --secondary-color: #3a0ca3;
-            --light-color: #f8f9fa;
-            --dark-color: #212529;
-            --gray-color: #6c757d;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--dark-color);
-            background-color: #f8f9fa;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-        }
-        
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
-        
-        header p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        nav {
-            background-color: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-        
-        .nav-links {
-            list-style: none;
-            display: flex;
-        }
-        
-        .nav-links li {
-            margin-left: 25px;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark-color);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-        
-        section {
-            padding: 60px 0;
-        }
-        
-        section h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-        }
-        
-        section p {
-            margin-bottom: 20px;
-        }
-        
-        .main-figure {
-            width: 100%;
-            margin: 30px 0;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        .dimensions {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
-        
-        .dimension-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .dimension-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-        }
-        
-        .dimension-card h3 {
-            padding: 20px;
-            background-color: var(--primary-color);
-            color: white;
-        }
-        
-        .dimension-card p {
-            padding: 20px;
-        }
-        
-        .samples {
-            padding: 20px;
-        }
-        
-        .samples-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-        }
-        
-        .samples-grid img {
-            width: 100%;
-            border-radius: 4px;
-        }
-        
-        .sample-question {
-            font-style: italic;
-            margin-top: 15px;
-            padding: 10px;
-            background-color: #f0f0f0;
-            border-radius: 4px;
-        }
-        
-        .results-section {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 40px 0;
-            text-align: center;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: background-color 0.3s;
-        }
-        
-        .btn:hover {
-            background-color: var(--secondary-color);
-        }
-        
-        .cta {
-            text-align: center;
-            margin: 40px 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Do You See Me - A Visual Perception Benchmark for MLLMs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #8A2BE2; /* Vibrant purple */
+      --secondary-color: #FF5F5F; /* Coral accent */
+      --highlight-color: #00E5E8; /* Cyan for highlights */
+      --background-color: #121212; /* Dark background */
+      --card-background: #1E1E1E; /* Slightly lighter for cards */
+      --text-color: #E0E0E0; /* Light text for good contrast */
+      --secondary-text: #ACACAC; /* Slightly darker text for secondary info */
+      --border-color: #333333; /* Subtle borders */
+    }
 
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.2rem;
-            }
-            
-            .dimensions {
-                grid-template-columns: 1fr;
-            }
-            
-            .samples-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #000000;
+      border-bottom: 3px solid var(--primary-color);
+    }
+
+    h1, h2, h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: 0.5px;
+    }
+
+    header h1 {
+      color: var(--text-color);
+      font-size: 3em;
+      margin-bottom: 15px;
+      text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+      font-weight: 700;
+    }
+
+    header p.authors {
+      color: var(--highlight-color);
+      font-size: 1.2em;
+      margin-top: 10px;
+      font-weight: 300;
+    }
+
+    .buttons {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .btn {
+      text-decoration: none;
+      background-color: var(--card-background);
+      color: var(--text-color);
+      padding: 12px 24px;
+      border-radius: 8px;
+      margin: 0 10px;
+      font-weight: 500;
+      transition: all 0.3s;
+      display: inline-block;
+      border: 1px solid var(--primary-color);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background-color: var(--primary-color);
+      transition: all 0.3s;
+      z-index: -1;
+    }
+
+    .btn:hover:before {
+      width: 100%;
+    }
+
+    .btn:hover {
+      color: #FFFFFF;
+      box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+      transform: translateY(-2px);
+    }
+
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: var(--card-background);
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      border-left: 3px solid var(--primary-color);
+    }
+
+    section h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: var(--highlight-color);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 10px;
+    }
+
+    p, li {
+      font-size: 1.1em;
+      margin-bottom: 1em;
+      line-height: 1.7;
+    }
+
+    strong {
+      font-weight: 600;
+      color: var(--secondary-color);
+    }
+
+    .collapsible {
+      background-color: var(--card-background);
+      color: var(--text-color);
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 1.2em;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      border-left: 3px solid var(--primary-color);
+      font-family: 'Space Grotesk', sans-serif;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .collapsible:after {
+      content: '+';
+      font-size: 1.2em;
+      color: var(--primary-color);
+      float: right;
+    }
+
+    .collapsible.active:after {
+      content: '-';
+    }
+
+    .collapsible:hover {
+      background-color: #252525;
+    }
+
+    .content {
+      padding: 0 18px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out;
+      background-color: #191919;
+      border-radius: 0 0 8px 8px;
+      margin-bottom: 20px;
+      margin-top: -10px;
+    }
+
+    .slider {
+  width: 100%;
+  max-width: 800px;
+  height: 400px;
+  margin: 20px auto;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--border-color);
+}
+
+.slides {
+  display: flex;
+  width: 300%; /* Width for 3 images */
+  height: 100%;
+  transition: transform 1s ease;
+  animation: slideshow 15s infinite;
+}
+
+.slides img {
+  width: 33.333%; /* Each image takes exactly 1/3 of the slides container */
+  height: 100%;
+  object-fit: contain;
+  background-color: #000;
+  padding: 10px;
+}
+
+@keyframes slideshow {
+  0%, 25% {
+    transform: translateX(0);
+  }
+  33%, 58% {
+    transform: translateX(-33.333%);
+  }
+  66%, 91% {
+    transform: translateX(-66.666%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+    footer {
+      text-align: center;
+      margin: 50px 0 0 0;
+      padding: 30px;
+      color: var(--secondary-text);
+      font-size: 0.9em;
+      background-color: #000000;
+      border-top: 1px solid var(--border-color);
+    }
+    
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    .result-card {
+      background-color: #252525;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-top: 2px solid var(--primary-color);
+      transition: transform 0.3s;
+    }
+    
+    .result-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .result-card h3 {
+      color: var(--highlight-color);
+      margin-top: 0;
+      font-weight: 600;
+    }
+    
+    .highlight {
+      background-color: rgba(138, 43, 226, 0.2);
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-weight: 600;
+      color: var(--secondary-color);
+    }
+
+    /* Citation styling */
+    .citation {
+      font-size: 0.9em;
+      color: var(--secondary-text);
+      font-style: italic;
+      margin-top: 5px;
+    }
+
+    /* Image captions */
+    .image-caption {
+      text-align: center;
+      color: var(--secondary-text);
+      font-size: 0.9em;
+      margin-top: 10px;
+    }
+
+    /* Number highlight */
+    .number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--highlight-color);
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <div class="container">
-            <h1>Do You See Me</h1>
-            <p>A comprehensive benchmark for evaluating visual perception capabilities in Multimodal Large Language Models (MLLMs)</p>
+
+  <header>
+    <h1>Do You See Me</h1>
+    <p>A Visual Perception Benchmark for Multimodal LLMs</p>
+    <p class="authors">Aditya Kanade, Tanuja Ganu</p>
+    <p>Microsoft Research</p>
+  </header>
+
+  <!-- Auto-rotating Image Slider -->
+  <div class="slider">
+    <div class="slides">
+      <img src="assets/main_fig_v2.png" alt="Visual Discrimination Examples">
+      <img src="assets/model_performance_sweep_vs_human_subjective_pref_form_constancy.png" alt="MLLM Perception vs Human">
+      <img src="assets/spider_chart_wyn_dataset.png" alt="Benchmark Results">
+    </div>
+  </div>
+
+  <div class="buttons">
+    <a class="btn" href="#" target="_blank">📄 Paper</a>
+    <a class="btn" href="#" target="_blank">🖋 arXiv</a>
+    <a class="btn" href="https://github.com/microsoft/Do-You-See-Me" target="_blank">💻 Code</a>
+  </div>
+
+  <section>
+    <h2>Overview</h2>
+    <p>Multimodal Large Language Models (MLLMs) have demonstrated promising reasoning capabilities in diverse domains, yet their visual perception skills remain a critical bottleneck.</p>
+    <p>A core idea of our work is centered around answering the following question: <strong>Do current MLLMs exhibit human-level visual perception capabilities?</strong></p>
+  </section>
+
+  <section>
+    <h2>Motivation</h2>
+    <p>Visual perception is of high importance to almost all types of visual-question answering tasks, especially in math-based VQA where understanding fine-grained nuances of diagrams and figures is important for correct reasoning steps.</p>
+    <p>Current studies lack granularity in terms of categorizing increasingly difficult visual stimuli to assess the range of visual perception in MLLMs.</p>
+  </section>
+
+  <section>
+    <h2>Key Insights</h2>
+
+    <button class="collapsible">1. Joint Perception-Reasoning Dataset</button>
+    <div class="content">
+      <p>We annotate 150 logic-focused visual questions and include a perception question about a crucial detail in the visual diagram necessary for solving the reasoning question. Following is a list of our findings:</p>
+      <ul>
+        <li>MLLMs often answer reasoning questions correctly but fail to answer the related visual perception questions.</li>
+        <li>Visual perception errors in reasoning chains are common even when the final answer is correct.</li>
+        <li>Visual hallucinations can lead to correct answers through incorrect reasoning paths.</li>
+      </ul>
+      <p class="citation">Our analysis revealed that even top-performing MLLMs like Claude Sonnet-3.5 (with 41% accuracy on reasoning questions) produced reasoning chains containing visual perception errors in 43% of correctly answered samples.</p>
+    </div>
+
+    <button class="collapsible">2. Do You See Me Benchmark</button>
+    <div class="content">
+      <p><strong>Do You See Me</strong> is grounded in established human psychological frameworks that categorize visual perception into core abilities (Chalfant and Scheffelin, 1969). Drawing inspiration from standardized assessments like the Test of Visual Perception Skills (TVPS) and Motor-Free Visual Perception Test (MVPT), our benchmark adapts these principles to create a systematic evaluation methodology for MLLMs.</p>
+      <p>Our benchmark evaluates MLLMs on seven perception-focused subtasks:</p>
+      <ul>
+        <li><strong>Shape Discrimination:</strong> Ability to count specific shapes within a composite image</li>
+        <li><strong>Joint Shape-Color Discrimination:</strong> Ability to count shapes with specific colors</li>
+        <li><strong>Letter Discrimination:</strong> Ability to recognize block-based letters</li>
+        <li><strong>Visual Form Constancy:</strong> Ability to recognize patterns after transformations</li>
+        <li><strong>Visual Spatial:</strong> Ability to locate shapes by coordinates or relative positions</li>
+        <li><strong>Visual Figure-Ground:</strong> Ability to distinguish target pattern from background noise</li>
+        <li><strong>Visual Closure:</strong> Ability to match incomplete shapes with completed targets</li>
+      </ul>
+      <p>Our programmatic benchmark allows systematic control of task difficulty parameters, enabling fine-grained analysis of MLLM capabilities.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Results</h2>
+
+    <button class="collapsible">Do You See Me Visual Perception Benchmark</button>
+    <div class="content">
+      <p>Our comprehensive evaluation shows that current MLLMs significantly lag behind human performance:</p>
+      <ul>
+        <li>Humans achieve an average accuracy of <span class="number">94.31%</span> across all seven subtasks</li>
+        <li>The best performing MLLM (Claude Sonnet-3.5) achieves only <span class="number">50.05%</span> accuracy</li>
+        <li>No single model outperforms all others across all visual perception dimensions</li>
+      </ul>
+      <div class="results-grid">
+        <div class="result-card">
+          <h3>Visual Form Constancy</h3>
+          <p>MLLMs perform relatively well on this task, with Claude Sonnet-3.5 achieving <span class="highlight">91.48%</span> accuracy.</p>
         </div>
-    </header>
-    
-    <nav>
-        <div class="container nav-container">
-            <div class="logo"><strong>Do You See Me</strong></div>
-            <ul class="nav-links">
-                <li><a href="#overview">Overview</a></li>
-                <li><a href="#dimensions">Dimensions</a></li>
-                <li><a href="#results">Results</a></li>
-                <li><a href="#samples">Samples</a></li>
-                <li><a href="https://github.com/microsoft/Do-You-See-Me" target="_blank">GitHub</a></li>
-            </ul>
+        <div class="result-card">
+          <h3>Joint Shape-Color Discrimination</h3>
+          <p>Gemini-1.5 Flash and Qwen2.5-VL-7B-Instruct perform best with accuracies around <span class="highlight">80%</span>.</p>
         </div>
-    </nav>
-    
-    <section id="overview">
-        <div class="container">
-            <h2>Overview</h2>
-            <p>The Do You See Me benchmark is a comprehensive evaluation framework designed to assess visual perception capabilities in Multimodal Large Language Models (MLLMs). This fully automated test suite dynamically generates both visual stimuli and perception-focused questions (VPQA) with incremental difficulty levels, enabling a graded evaluation of MLLM performance across multiple perceptual dimensions.</p>
-            
-            <img src="img/main_fig.png" alt="Do You See Me Main Figure" class="main-figure">
-            
-            <h3>Theoretical Foundation</h3>
-            <p>The dataset's structure is grounded in established human psychological frameworks that categorize visual perception into core abilities (Chalfant and Scheffelin, 1969). Drawing inspiration from standardized assessments like the Test of Visual Perception Skills (TVPS) (Gardner, 1988) and Motor-Free Visual Perception Test (MVPT) (Colarusso, 2003), Do You See Me adapts these principles to create a systematic evaluation methodology for MLLMs.</p>
-            
-            <h3>Technical Implementation</h3>
-            <p>The entire dataset generation framework is implemented in Python and uses SVG representations to create visual stimuli with precisely controlled parameters. This approach allows for dynamic generation of test images with systematic variations, controlled difficulty progression across perception dimensions, reproducible evaluation conditions, and fine-grained assessment of model performance.</p>
-            
-            <div class="cta">
-                <a href="https://github.com/microsoft/Do-You-See-Me" class="btn" target="_blank">View on GitHub</a>
-            </div>
+        <div class="result-card">
+          <h3>Visual Spatial</h3>
+          <p>Gemini-1.5 achieves the highest accuracy at <span class="highlight">81.86%</span>, followed by Qwen-2.5.</p>
         </div>
-    </section>
-    
-    <section id="dimensions">
-        <div class="container">
-            <h2>Perceptual Dimensions</h2>
-            <p>The benchmark focuses on seven key dimensions of visual perception:</p>
-            
-            <div class="dimensions">
-                <div class="dimension-card">
-                    <h3>Shape Discrimination</h3>
-                    <p>Evaluates the ability to recognize shapes.</p>
-                </div>
-                
-                <div class="dimension-card">
-                    <h3>Joint Shape-Color Discrimination</h3>
-                    <p>Evaluates the ability to jointly recognize shapes and color.</p>
-                </div>
-                
-                <div class="dimension-card">
-                    <h3>Visual Form Constancy</h3>
-                    <p>Tests MLLM ability to identify a test shape configuration from similarly placed distractors.</p>
-                </div>
-                
-                <div class="dimension-card">
-                    <h3>Letter Disambiguation</h3>
-                    <p>Tests the recognition of letters.</p>
-                </div>
-                
-                <div class="dimension-card">
-                    <h3>Visual Figure-Ground</h3>
-                    <p>Evaluates the ability to distinguish the main object from its background under varying conditions.</p>
-                </div>
-                
-                <div class="dimension-card">
-                    <h3>Visual Closure</h3>
-                    <p>Assesses the ability to complete partially obscured shapes by mentally filling in missing information.</p>
-                </div>
-                
-                <div class="dimension-card">
-                    <h3>Visual Spatial</h3>
-                    <p>Examines the ability to perceive positions of objects relative to oneself and to other objects.</p>
-                </div>
-            </div>
-            <img src="img/control_param_syn_dataset.png" alt="Control Parameters" class="main-figure">
+        <div class="result-card">
+          <h3>Letter Discrimination</h3>
+          <p>MLLMs struggle significantly, with performance dropping to near zero at medium difficulty levels.</p>
         </div>
-    </section>
-    
-    <section id="results">
-        <div class="container">
-            <h2>Results</h2>
-            <div class="results-section">
-                <p>We have benchmarked multiple open and closed source MLLMs on our dataset of around 2.1k images. The performance results are presented below:</p>
-                <img src="img/results_syn_dataset.png" alt="Results on Do You See Me" style="width: 100%; margin-top: 20px;">
-            </div>
-        </div>
-    </section>
-    
-    <section id="samples">
-        <div class="container">
-            <h2>Sample Dimensions</h2>
-            
-            <div class="dimension-card">
-                <h3>Visual Spatial</h3>
-                <p>Tests the ability to perceive and understand spatial relationships between objects. Evaluates orientation discrimination and positional awareness.</p>
-                <div class="samples">
-                    <div class="samples-grid">
-                        <img src="dataset/visual_spatial/1.png" alt="Visual Spatial Example 1">
-                        <img src="dataset/visual_spatial/50.png" alt="Visual Spatial Example 2">
-                        <img src="dataset/visual_spatial/100.png" alt="Visual Spatial Example 3">
-                    </div>
-                    <div class="sample-question">
-                        Sample Question: Starting from the black circle at position (row 1, column 3), how many triangles are there bottom of it in the same row?
-                    </div>
-                </div>
-            </div>
-            
-            <div class="dimension-card" style="margin-top: 30px;">
-                <h3>Visual Figure-Ground</h3>
-                <p>Examines the ability to distinguish an object from its background. Challenges perception by varying contrast, noise, and complexity.</p>
-                <div class="samples">
-                    <div class="samples-grid">
-                        <img src="dataset/visual_figure_ground/1.png" alt="Figure-Ground Example 1">
-                        <img src="dataset/visual_figure_ground/50.png" alt="Figure-Ground Example 2">
-                        <img src="dataset/visual_figure_ground/89.png" alt="Figure-Ground Example 3">
-                    </div>
-                    <div class="sample-question">
-                        Sample Question: The figure consists of a Target image, which is embedded in some background noise. Out of the four given options, your task is to pick the option which has the same figure as the target image. Respond as follows: Option &lt;your answer (choose between 1, 2, 3, or 4)&gt;.
-                    </div>
-                </div>
-            </div>
-            
-            <div class="dimension-card" style="margin-top: 30px;">
-                <h3>Visual Form Constancy</h3>
-                <p>Assesses recognition of shapes despite changes in size, orientation, or context. Tests invariance in visual perception.</p>
-                <div class="samples">
-                    <div class="samples-grid">
-                        <img src="dataset/visual_form_constancy/1.png" alt="Form Constancy Example 1">
-                        <img src="dataset/visual_form_constancy/50.png" alt="Form Constancy Example 2">
-                        <img src="dataset/visual_form_constancy/100.png" alt="Form Constancy Example 3">
-                    </div>
-                    <div class="sample-question">
-                        Sample Question: The figure consists of a Target image. Out of the four given options, your task is to pick the option which has the same figure as the target image. Respond as follows: Option &lt;your answer (choose between 1, 2, 3, or 4)&gt;.
-                    </div>
-                </div>
-            </div>
-            
-            <div class="dimension-card" style="margin-top: 30px;">
-                <h3>Shape Disambiguation</h3>
-                <p>Challenges the ability to identify ambiguous shapes that can be interpreted in multiple ways. Explores perceptual flexibility.</p>
-                <div class="samples">
-                    <div class="samples-grid">
-                        <img src="dataset/geometric_dataset/1.png" alt="Shape Disambiguation Example 1">
-                        <img src="dataset/geometric_dataset/50.png" alt="Shape Disambiguation Example 2">
-                        <img src="dataset/geometric_dataset/100.png" alt="Shape Disambiguation Example 3">
-                    </div>
-                    <div class="sample-question">
-                        Sample Question: Count the total number of triangles in the image, including each concentric triangle separately. For example, if there is one triangle with 2 inner concentric rings, that counts as 3 triangles. Respond with only a number.
-                    </div>
-                </div>
-            </div>
+      </div>
+    </div>
 
-            <!-- Change Here -->
+    <button class="collapsible">Human vs MLLM Comparison</button>
+    <div class="content">
+      <p>As task complexity increases, MLLM performance drops drastically while human performance remains stable. Key observations:</p>
+      <ul>
+        <li>For visual form constancy, the performance gap between humans and closed-source models grows from <span class="number">12%</span> (easy samples) to <span class="number">45%</span> (hard samples)</li>
+        <li>Open-source models consistently lag behind closed-source models across all difficulty levels</li>
+        <li>Human-rated difficulty levels provide valuable insights into the perceptual capabilities of MLLMs</li>
+      </ul>
+      <p>In the letter disambiguation task, as difficulty reaches medium level, both closed- and open-source models' performance drops to near zero, while human accuracy remains consistently high.</p>
+    </div>
 
+    <button class="collapsible">Effects of Increasing Visual Stimuli Difficulty</button>
+    <div class="content">
+      <p>Our programmatic benchmark allows systematic control of task difficulty parameters. We observe:</p>
+      <ul>
+        <li>MLLMs perform well on simple visual tasks but fail dramatically as complexity increases</li>
+        <li>Performance deteriorates significantly when tasks incorporate occlusion or noise around critical visual areas</li>
+        <li>Tasks involving overlapping shapes or low contrast present significant challenges for current MLLMs</li>
+      </ul>
+      <p>For example, in visual figure-ground tasks, adding background noise results in approximately a <span class="number">50%</span> performance drop for top-performing models compared to similar form constancy tasks without noise.</p>
+    </div>
+  </section>
 
-            <div class="dimension-card" style="margin-top: 30px;">
-                <h3>Letter Disambiguation</h3>
-                <p> Tests the recognition of letters.</p>
-                <div class="samples">
-                    <div class="samples-grid">
-                        <img src="dataset/letter_disambiguation/1.png" alt="Shape Disambiguation Example 1">
-                        <img src="dataset/letter_disambiguation/50.png" alt="Shape Disambiguation Example 2">
-                        <img src="dataset/letter_disambiguation/100.png" alt="Shape Disambiguation Example 3">
-                    </div>
-                    <div class="sample-question">
-                        Sample Question: The image shows one or more letters formed by a grid of small squares. What letter(s) can you identify in this image? Please respond with only the letter(s) you see.
-                    </div>
-                </div>
-            </div>
-            
-            <div class="dimension-card" style="margin-top: 30px;">
-                <h3>Joint Shape-Color Discrimination</h3>
-                <p>Evaluates the ability to jointly recognize shapes and color.</p>
-                <div class="samples">
-                    <div class="samples-grid">
-                        <img src="dataset/color_and_shape_disambiguation/1.png" alt="Shape Disambiguation Example 1">
-                        <img src="dataset/color_and_shape_disambiguation/50.png" alt="Shape Disambiguation Example 2">
-                        <img src="dataset/color_and_shape_disambiguation/89.png" alt="Shape Disambiguation Example 3">
-                    </div>
-                    <div class="sample-question">
-                        Sample Question: Count the number of star's that are red.
-                    </div>
-                </div>
-            </div>
-            
-            <div class="dimension-card" style="margin-top: 30px;">
-                <h3>Visual Closure</h3>
-                <p>Assesses the ability to complete partially obscured shapes by mentally filling in missing information.</p>
-                <div class="samples">
-                    <div class="samples-grid">
-                        <img src="dataset/visual_closure/1.png" alt="Visual closure Example 1">
-                        <img src="dataset/visual_closure/50.png" alt="Visual closure Example 2">
-                        <img src="dataset/visual_closure/100.png" alt="Visual closure Example 3">
-                    </div>
-                    <div class="sample-question">
-                        Sample Question: The figure consists of a target image which is complete, Out of the four given options (which are partially complete), your task is to pick the option which when completed matches the target image. Respond as follows: Option <your answer (choose between 1, 2, 3, or 4)>.
-                    </div>
-                </div>
-            </div>
-            
+  <section>
+    <h2>Conclusion</h2>
+    <p>Our study highlights the importance of developing more perceptually grounded MLLMs to reduce hallucinations and ensure reliable performance on visual reasoning tasks.</p>
+    <p>Results on the Do You See Me benchmark clearly indicate that MLLMs fare poorly on visual perception skills and exhibit a large gap in performance when compared to humans. This suggests an urgent need to improve visual perception capabilities in MLLMs, independently from high-level reasoning.</p>
+    <p>The programmatic, scalable, and complexity-controlled approach used in our benchmark is suitable not only for evaluations but also for synthetic training data creation to improve visual perception capabilities in MLLMs.</p>
+  </section>
+
+  <footer>
+    <!-- © 2025 Do You See Me | Microsoft Research<br> -->
+
+    <div style="border: 1px solid black; padding: 10px;">
+      <a href="https://support.microsoft.com/contactus" style="color: #008080; text-decoration: none;">Contact Us</a> | 
+      <a href="https://go.microsoft.com/fwlink/?LinkId=521839" style="color: #008080; text-decoration: none;">Privacy & Cookies</a> | 
+      <a href="https://go.microsoft.com/fwlink/?LinkId=521839" style="color: #008080; text-decoration: none;">Consumer Health Privacy</a> | 
+      <a href="https://go.microsoft.com/fwlink/?LinkID=246338" style="color: #008080; text-decoration: none;">Terms of Use</a> | 
+      Code of Conduct | 
+      <a href="https://go.microsoft.com/fwlink/?linkid=2196228%20" style="color: #008080; text-decoration: none;">Trademarks</a> | 
+      © <span id="current-year">2025</span>
+    </div>
+  </footer>
 
 
 
 
 
-            <div class="cta">
-                <a href="https://github.com/microsoft/Do-You-See-Me" class="btn" target="_blank">Explore Full Dataset</a>
-            </div>
-        </div>
-    </section>
-    
-    <footer>
-        <div class="container">
-            <p>Do You See Me - A Visual Perception Benchmark for MLLMs</p>
-            <p>This project has adopted the <a href="https://opensource.microsoft.com/codeofconduct/" style="color: white; text-decoration: underline;">Microsoft Open Source Code of Conduct</a></p>
-            <p>&copy; 2025</p>
-        </div>
-    </footer>
+  <script>
+    // Collapsible Box Logic
+    const collapsibles = document.querySelectorAll(".collapsible");
+    collapsibles.forEach(btn => {
+      btn.addEventListener("click", function () {
+        this.classList.toggle("active");
+        const content = this.nextElementSibling;
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    });
+  </script>
+
 </body>
+
 </html>
