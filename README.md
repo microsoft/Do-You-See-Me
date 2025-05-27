@@ -56,10 +56,12 @@
   ## Dataset Structure
 
   The repository is organized into two directories:
-    - 2D_DoYouSeeMe
-    - 3D_DoYouSeeMe
+  - 2D_DoYouSeeMe
+
+  - 3D_DoYouSeeMe
   
   Each directory consists of separate dimension wise dataset:
+
    **2D**
   - 2D_DoYouSeeMe/visual_spatial
   - 2D_DoYouSeeMe/visual_figure_ground
@@ -68,6 +70,7 @@
   - 2D_DoYouSeeMe/shape_color_discrimination
   - 2D_DoYouSeeMe/letter_disambiguation
   - 2D_DoYouSeeMe/visual_closure
+
   **3D**
   - 3D_DoYouSeeMe/visual_spatial
   - 3D_DoYouSeeMe/visual_form_constancy
@@ -75,7 +78,20 @@
   - 3D_DoYouSeeMe/shape_color_discrimination
   - 3D_DoYouSeeMe/letter_disambiguation
 
-  In order to use our synthetic data generation for the visual-perception dimensions, first, simply run any of the 7 python files in the main repo named as: *(2D|3D)_\<dimension-name\>.py*. Each python file has a control towards the end, where sweeps are defined for each control parameter listed in **Table 1**, these can be changed to increase data. For 1) visual_spatial, 2) shape_disambiguation, and 3) shape_color_discrimination a *dataset_dump.csv* is created in related directory, this dump file captures all the details for each generated image, we then use a *dataset_creator.py* file (added in all the three dirs) to generate the actual dataset (dataset_info.csv), where multiple perception questions are formulated per image (refer the dataset_creator.py to change number of questions per image). Each visual-perception dim has a dataset_info.csv containing filename, question, answer, and sweep column. 
+  To generate data, run the Python file corresponding to the visual-perception dimension you are interested in. The general command structure is:
+
+  ```bash
+  python scripts/<dimensionality>/<dimension-name>.py
+  ```
+  * Replace `<dimensionality>` with either `2D` or `3D`.
+  * Replace `<dimension-name>` with the actual name of the visual-perception dimension (e.g., `visual_spatial`, `shape_disambiguation`).
+
+  **Example:** To generate data for the 2D `visual_spatial` dimension, you would execute:
+
+  ```bash
+  python scripts/2D/visual_spatial.py
+  ```
+Each python file has a control towards the end, where sweeps are defined for each control parameter listed in **Table 1**, these can be changed to increase data. For 1) visual_spatial, 2) shape_disambiguation, and 3) shape_color_discrimination a *dataset_dump.csv* is created in related directory, this dump file captures all the details for each generated image, we then use a *dataset_creator.py* file (added in all the three dirs) to generate the actual dataset (dataset_info.csv), where multiple perception questions are formulated per image (refer the dataset_creator.py to change number of questions per image). Each visual-perception dim has a dataset_info.csv containing filename, question, answer, and sweep column. 
 
   We have created a dataset of around 2.6k images used and benchmarked multiple open and closed source MLLMs, performance of MLLMs is presented in the **Results** section. This benchmark dataset is released as a zip file named *dataset.zip* in the main folder.
 
@@ -207,3 +223,8 @@
   [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
   Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
   Any use of third-party trademarks or logos are subject to those third-party's policies.
+
+  ## License 📜
+
+  The **code** in this repository is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+  The **dataset** is licensed under the [Community Data License Agreement - Permissive - Version 2.0 (CDLA-Permissive-2.0)](https://cdla.dev/permissive-2-0/).
