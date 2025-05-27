@@ -1,0 +1,13 @@
+{
+    "scene": "grassland",
+    "light": "left",
+    "same_orientation": false,
+    "shapes": [
+        "cylinder"
+    ],
+    "substitutions": [],
+    "question": "Do the shapes on the left and right have the same orientation?",
+    "answer": "No",
+    "num_shapes": 1,
+    "noise_amount": 5
+}

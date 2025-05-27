@@ -1,0 +1,14 @@
+{
+    "scene": "skywalk",
+    "light": "middle",
+    "shape_counts": {
+        "torus": 1
+    },
+    "shape_color_counts": {
+        "('torus', 'yellow')": 1
+    },
+    "min_visibility": 0.7,
+    "num_objects": 1,
+    "num_shapes": 1,
+    "max_instances_per_shape": 1
+}

@@ -1,0 +1,12 @@
+{
+    "scene": "street",
+    "light": "left",
+    "dot_type": "sphere",
+    "dot_size": 0.05,
+    "spacing": 0.4,
+    "dot_color": "red",
+    "background_dots": false,
+    "letters": [
+        "T"
+    ]
+}
