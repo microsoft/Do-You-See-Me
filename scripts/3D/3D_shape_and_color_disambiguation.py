@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT license.
+
 import bpy
 from mathutils import Vector, Euler
 from bpy_extras.object_utils import world_to_camera_view

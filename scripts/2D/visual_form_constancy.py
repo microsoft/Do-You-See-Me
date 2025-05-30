@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT license.
+
 import svgwrite
 import random
 from typing import List, Dict, Any

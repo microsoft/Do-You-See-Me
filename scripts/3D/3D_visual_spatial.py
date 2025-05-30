@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT license.
+
 # imports specific to Blender's python API
 import bpy
 from mathutils import Vector, Euler
