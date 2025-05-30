@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT license.
+
 # variation, dot_size, spacing, letter_number
 import os
 import pandas as pd
