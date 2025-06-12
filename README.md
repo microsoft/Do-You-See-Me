@@ -202,6 +202,21 @@ Each python file has a control towards the end, where sweeps are defined for eac
 
   *Sample Question: The figure consists of a target image which is complete, Out of the four given options (which are partially complete), your task is to pick the option which when completed matches the target image. Respond as follows: Option <your answer (choose between 1, 2, 3, or 4)>.*
 
+  ## Citation
+
+  If you use this benchmark or dataset in your research, please cite our work as follows:
+  ```
+  @misc{kanade2025multidimensionalbenchmarkevaluating,
+        title={Do You See Me : A Multidimensional Benchmark for Evaluating Visual Perception in Multimodal LLMs}, 
+        author={Aditya Kanade and Tanuja Ganu},
+        year={2025},
+        eprint={2506.02022},
+        archivePrefix={arXiv},
+        primaryClass={cs.CV},
+        url={https://arxiv.org/abs/2506.02022}, 
+  } 
+  ```
+
   ## Contributing
 
   This project welcomes contributions and suggestions.  Most contributions require you to agree to a
