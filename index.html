@@ -7,425 +7,481 @@
   <title>Do You See Me - A Visual Perception Benchmark for MLLMs</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary-color: #8A2BE2; /* Vibrant purple */
-      --secondary-color: #FF5F5F; /* Coral accent */
-      --highlight-color: #00E5E8; /* Cyan for highlights */
-      --background-color: #121212; /* Dark background */
-      --card-background: #1E1E1E; /* Slightly lighter for cards */
-      --text-color: #E0E0E0; /* Light text for good contrast */
-      --secondary-text: #ACACAC; /* Slightly darker text for secondary info */
-      --border-color: #333333; /* Subtle borders */
-    }
+      :root {
+        --primary-color: #6A0DAD; /* A slightly deeper purple for better contrast */
+        --secondary-color: #D9534F; /* A clear, strong red/coral */
+        --highlight-color: #0275D8; /* A vibrant blue for highlights */
+        --background-color: #F8F9FA; /* Soft, off-white background */
+        --card-background: #FFFFFF; /* Pure white for cards */
+        --text-color: #212529; /* Dark gray for main text */
+        --secondary-text: #6C757D; /* Lighter gray for secondary info */
+        --border-color: #DEE2E6; /* Light gray for borders */
+      }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--background-color);
-      color: var(--text-color);
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-    }
+      body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+      }
 
-    header {
-      text-align: center;
-      padding: 40px 20px;
-      background-color: #000000;
-      border-bottom: 3px solid var(--primary-color);
-    }
+      header {
+        text-align: center;
+        padding: 40px 20px;
+        background-color: var(--card-background); /* Changed from black */
+        border-bottom: 3px solid var(--primary-color);
+      }
 
-    h1, h2, h3 {
-      font-family: 'Space Grotesk', sans-serif;
-      letter-spacing: 0.5px;
-    }
+      h1, h2, h3 {
+        font-family: 'Space Grotesk', sans-serif;
+        letter-spacing: 0.5px;
+      }
 
-    header h1 {
-      color: var(--text-color);
-      font-size: 3em;
-      margin-bottom: 15px;
-      text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
-      font-weight: 700;
-    }
+      header h1 {
+        color: var(--text-color);
+        font-size: 3em;
+        margin-bottom: 15px;
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtler shadow for light bg */
+        font-weight: 700;
+      }
 
-    header p.authors {
-      color: var(--highlight-color);
-      font-size: 1.2em;
-      margin-top: 10px;
-      font-weight: 300;
-    }
+      header p.authors {
+        color: var(--primary-color); /* Changed for better contrast */
+        font-size: 1.2em;
+        margin-top: 10px;
+        font-weight: 300;
+      }
 
-    .buttons {
-      text-align: center;
-      margin: 30px 0;
-    }
+      .buttons {
+        text-align: center;
+        margin: 30px 0;
+      }
 
-    .btn {
-      text-decoration: none;
-      background-color: var(--card-background);
-      color: var(--text-color);
-      padding: 12px 24px;
-      border-radius: 8px;
-      margin: 0 10px;
-      font-weight: 500;
-      transition: all 0.3s;
-      display: inline-block;
-      border: 1px solid var(--primary-color);
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-    }
+      .btn {
+        text-decoration: none;
+        background-color: var(--card-background);
+        color: var(--primary-color); /* Changed text color for light bg */
+        padding: 12px 24px;
+        border-radius: 8px;
+        margin: 0 10px;
+        font-weight: 500;
+        transition: all 0.3s;
+        display: inline-block;
+        border: 1px solid var(--primary-color);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
 
-    .btn:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0%;
-      height: 100%;
-      background-color: var(--primary-color);
-      transition: all 0.3s;
-      z-index: -1;
-    }
+      .btn:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: var(--primary-color);
+        transition: all 0.3s;
+        z-index: -1;
+      }
 
-    .btn:hover:before {
-      width: 100%;
-    }
+      .btn:hover:before {
+        width: 100%;
+      }
 
-    .btn:hover {
-      color: #FFFFFF;
-      box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
-      transform: translateY(-2px);
-    }
+      .btn:hover {
+        color: #FFFFFF;
+        box-shadow: 0 4px 15px rgba(106, 13, 173, 0.25); /* Adjusted shadow */
+        transform: translateY(-2px);
+      }
 
-    section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 30px;
-      background-color: var(--card-background);
-      border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-      border-left: 3px solid var(--primary-color);
-    }
+      section {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: var(--card-background);
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07); /* Subtler shadow */
+        border-left: 3px solid var(--primary-color);
+      }
 
-    section h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
-      color: var(--highlight-color);
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 10px;
-    }
+      section h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        color: var(--highlight-color);
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 10px;
+      }
 
-    p, li {
-      font-size: 1.1em;
-      margin-bottom: 1em;
-      line-height: 1.7;
-    }
+      p, li {
+        font-size: 1.1em;
+        margin-bottom: 1em;
+        line-height: 1.7;
+      }
 
-    strong {
-      font-weight: 600;
-      color: var(--secondary-color);
-    }
+      strong {
+        font-weight: 600;
+        color: var(--secondary-color);
+      }
 
-    .collapsible {
-      background-color: var(--card-background);
-      color: var(--text-color);
-      cursor: pointer;
-      padding: 18px;
-      width: 100%;
-      border: none;
-      text-align: left;
-      outline: none;
-      font-size: 1.2em;
-      border-radius: 8px;
-      margin-bottom: 10px;
-      border-left: 3px solid var(--primary-color);
-      font-family: 'Space Grotesk', sans-serif;
-      transition: all 0.3s;
-      position: relative;
-    }
+      .collapsible {
+        background-color: var(--card-background);
+        color: var(--text-color);
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: 1px solid var(--border-color); /* Added border for definition */
+        text-align: left;
+        outline: none;
+        font-size: 1.2em;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        font-family: 'Space Grotesk', sans-serif;
+        transition: all 0.3s;
+        position: relative;
+      }
 
-    .collapsible:after {
-      content: '+';
-      font-size: 1.2em;
-      color: var(--primary-color);
-      float: right;
-    }
+      .collapsible:after {
+        content: '+';
+        font-size: 1.2em;
+        color: var(--primary-color);
+        float: right;
+      }
 
-    .collapsible.active:after {
-      content: '-';
-    }
+      .collapsible.active:after {
+        content: '-';
+      }
 
-    .collapsible:hover {
-      background-color: #252525;
-    }
+      .collapsible:hover {
+        background-color: #F1F3F5; /* Light hover color */
+        border-color: var(--primary-color);
+      }
 
-    .content {
-      padding: 0 18px;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease-out;
-      background-color: #191919;
-      border-radius: 0 0 8px 8px;
-      margin-bottom: 20px;
-      margin-top: -10px;
-    }
+      .citation-box {
+        background-color: #F1F3F5; /* A light grey that matches other elements */
+        border: 1px solid var(--border-color);
+        border-left: 3px solid var(--secondary-color); /* An accent color */
+        padding: 20px;
+        border-radius: 8px;
+        white-space: pre-wrap;       /* Ensures long lines can wrap */
+        word-wrap: break-word;       /* Breaks long words if necessary */
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 0.95em;
+        line-height: 1.5;
+        color: #343a40;
+      }
 
-    .slider {
-  width: 100%;
-  max-width: 800px;
-  height: 400px;
-  margin: 20px auto;
-  overflow: hidden;
-  position: relative;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  border: 1px solid var(--border-color);
-}
+      .content {
+        padding: 0 18px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-out;
+        background-color: #F8F9FA; /* Changed to light background */
+        border-radius: 0 0 8px 8px;
+        margin-bottom: 20px;
+        margin-top: -10px;
+      }
 
-.slides {
-  display: flex;
-  width: 300%; /* Width for 3 images */
-  height: 100%;
-  transition: transform 1s ease;
-  animation: slideshow 15s infinite;
-}
+      /* --- Image Slider Changes --- */
+      .slider {
+        width: 100%;
+        max-width: 800px;
+        height: 400px;
+        margin: 20px auto;
+        overflow: hidden;
+        position: relative;
+        border-radius: 10px;
+        /* Removed border and box-shadow to eliminate the "box" */
+      }
 
-.slides img {
-  width: 33.333%; /* Each image takes exactly 1/3 of the slides container */
-  height: 100%;
-  object-fit: contain;
-  background-color: #000;
-  padding: 10px;
-}
+      .slides {
+        display: flex;
+        width: 300%; /* Width for 3 images */
+        height: 100%;
+        transition: transform 1s ease;
+        animation: slideshow 15s infinite;
+      }
 
-@keyframes slideshow {
-  0%, 25% {
-    transform: translateX(0);
-  }
-  33%, 58% {
-    transform: translateX(-33.333%);
-  }
-  66%, 91% {
-    transform: translateX(-66.666%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-    footer {
-      text-align: center;
-      margin: 50px 0 0 0;
-      padding: 30px;
-      color: var(--secondary-text);
-      font-size: 0.9em;
-      background-color: #000000;
-      border-top: 1px solid var(--border-color);
-    }
-    
-    .results-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-    }
-    
-    .result-card {
-      background-color: #252525;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      border-top: 2px solid var(--primary-color);
-      transition: transform 0.3s;
-    }
-    
-    .result-card:hover {
-      transform: translateY(-5px);
-    }
-    
-    .result-card h3 {
-      color: var(--highlight-color);
-      margin-top: 0;
-      font-weight: 600;
-    }
-    
-    .highlight {
-      background-color: rgba(138, 43, 226, 0.2);
-      padding: 2px 5px;
-      border-radius: 3px;
-      font-weight: 600;
-      color: var(--secondary-color);
-    }
+      .slides img {
+        width: 33.333%;
+        height: 100%;
+        object-fit: contain;
+        background-color: transparent; /* Removed black background */
+        /* Removed padding */
+      }
 
-    /* Citation styling */
-    .citation {
-      font-size: 0.9em;
-      color: var(--secondary-text);
-      font-style: italic;
-      margin-top: 5px;
-    }
+      @keyframes slideshow {
+        0%, 25% {
+          transform: translateX(0);
+        }
+        33%, 58% {
+          transform: translateX(-33.333%);
+        }
+        66%, 91% {
+          transform: translateX(-66.666%);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
 
-    /* Image captions */
-    .image-caption {
-      text-align: center;
-      color: var(--secondary-text);
-      font-size: 0.9em;
-      margin-top: 10px;
-    }
+      footer {
+        text-align: center;
+        margin: 50px 0 0 0;
+        padding: 30px;
+        color: var(--secondary-text);
+        font-size: 0.9em;
+        background-color: var(--card-background); /* Changed from black */
+        border-top: 1px solid var(--border-color);
+      }
+      
+      .results-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+      }
+      
+      .result-card {
+        background-color: #F1F3F5; /* Light gray background */
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        border-top: 2px solid var(--primary-color);
+        transition: transform 0.3s;
+      }
+      
+      .result-card:hover {
+        transform: translateY(-5px);
+      }
+      
+      .result-card h3 {
+        color: var(--highlight-color);
+        margin-top: 0;
+        font-weight: 600;
+      }
+      
+      .highlight {
+        background-color: rgba(217, 83, 79, 0.15); /* Light red highlight background */
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-weight: 600;
+        color: var(--secondary-color);
+      }
 
-    /* Number highlight */
-    .number {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      color: var(--highlight-color);
-    }
+      /* Citation styling */
+      .citation {
+        font-size: 0.9em;
+        color: var(--secondary-text);
+        font-style: italic;
+        margin-top: 5px;
+      }
+
+      /* Image captions */
+      .image-caption {
+        text-align: center;
+        color: var(--secondary-text);
+        font-size: 0.9em;
+        margin-top: 10px;
+      }
+
+      /* Number highlight */
+      .number {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        color: var(--highlight-color);
+      }
+      
+      footer a {
+        color: var(--highlight-color);
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
   </style>
 </head>
 
+
 <body>
 
-  <header>
+<header>
     <h1>Do You See Me</h1>
-    <p>A Visual Perception Benchmark for Multimodal LLMs</p>
+    <p>A Multidimensional Benchmark for Evaluating Visual Perception in Multimodal LLMs</p>
     <p class="authors">Aditya Kanade, Tanuja Ganu</p>
     <p>Microsoft Research</p>
   </header>
 
-  <!-- Auto-rotating Image Slider -->
-  <div class="slider">
+    <div class="slider">
     <div class="slides">
-      <img src="assets/main_fig_v2.png" alt="Visual Discrimination Examples">
-      <img src="assets/model_performance_sweep_vs_human_subjective_pref_form_constancy.png" alt="MLLM Perception vs Human">
-      <img src="assets/spider_chart_wyn_dataset.png" alt="Benchmark Results">
-    </div>
+   <img src="assets/main_fig_v2.png" alt="Visual Discrimination Examples">
+  <img src="assets/model_performance_sweep_vs_human_subjective_pref_form_constancy.png" alt="MLLM Perception vs Human">
+  <img src="assets/spider_chart_wyn_dataset.png" alt="Benchmark Results">
+  </div>
   </div>
 
   <div class="buttons">
-    <a class="btn" href="#" target="_blank">📄 Paper</a>
-    <a class="btn" href="#" target="_blank">🖋 arXiv</a>
+    <a class="btn" href="https://arxiv.org/pdf/2506.02022" target="_blank">📄 Paper</a>
+    <a class="btn" href="https://arxiv.org/abs/2506.02022" target="_blank">🖋 arXiv</a>
     <a class="btn" href="https://github.com/microsoft/Do-You-See-Me" target="_blank">💻 Code</a>
   </div>
 
   <section>
     <h2>Overview</h2>
-    <p>Multimodal Large Language Models (MLLMs) have demonstrated promising reasoning capabilities in diverse domains, yet their visual perception skills remain a critical bottleneck.</p>
-    <p>A core idea of our work is centered around answering the following question: <strong>Do current MLLMs exhibit human-level visual perception capabilities?</strong></p>
-  </section>
-
-  <section>
-    <h2>Motivation</h2>
-    <p>Visual perception is of high importance to almost all types of visual-question answering tasks, especially in math-based VQA where understanding fine-grained nuances of diagrams and figures is important for correct reasoning steps.</p>
-    <p>Current studies lack granularity in terms of categorizing increasingly difficult visual stimuli to assess the range of visual perception in MLLMs.</p>
+    <p>Multimodal Large Language Models (MLLMs) have demonstrated promising reasoning capabilities, yet their visual perception—the ability to interpret and understand visual stimuli—remains a critical bottleneck.  Strikingly, MLLMs can produce correct answers even while misinterpreting crucial visual elements, masking these underlying failures. </p>
+    <p>Our work centers on a fundamental question: <strong>Do current MLLMs exhibit human-level visual perception capabilities?</strong>  To answer this, we introduce the <strong>Do You See Me</strong> benchmark, a scalable and systematic tool for evaluating the core visual skills of MLLMs. </p>
   </section>
 
   <section>
     <h2>Key Insights</h2>
 
-    <button class="collapsible">1. Joint Perception-Reasoning Dataset</button>
+    <button class="collapsible">1. Perception vs. Reasoning: A Hidden Disconnect</button>
     <div class="content">
-      <p>We annotate 150 logic-focused visual questions and include a perception question about a crucial detail in the visual diagram necessary for solving the reasoning question. Following is a list of our findings:</p>
+      <p>We created a joint perception-reasoning dataset from 150 logic-based IQ questions to investigate whether correct reasoning implies correct perception.  Our findings reveal a significant disconnect:</p>
       <ul>
-        <li>MLLMs often answer reasoning questions correctly but fail to answer the related visual perception questions.</li>
-        <li>Visual perception errors in reasoning chains are common even when the final answer is correct.</li>
-        <li>Visual hallucinations can lead to correct answers through incorrect reasoning paths.</li>
+        <li>MLLMs often answer reasoning questions correctly while failing the corresponding perception questions that test their understanding of critical visual details. </li>
+        <li>Visual perception errors are common in the reasoning chains of MLLMs, even when the final answer is correct. </li>
       </ul>
-      <p class="citation">Our analysis revealed that even top-performing MLLMs like Claude Sonnet-3.5 (with 41% accuracy on reasoning questions) produced reasoning chains containing visual perception errors in 43% of correctly answered samples.</p>
+      <p class="citation">Our preliminary study on one leading MLLM revealed that for <span class="highlight">29.0%</span> of its correct answers to reasoning questions, the model still made visual perception errors.  This highlights that final-answer accuracy can obscure critical perceptual shortcomings. </p>
     </div>
 
-    <button class="collapsible">2. Do You See Me Benchmark</button>
+    <button class="collapsible">2. The "Do You See Me" Benchmark</button>
     <div class="content">
-      <p><strong>Do You See Me</strong> is grounded in established human psychological frameworks that categorize visual perception into core abilities (Chalfant and Scheffelin, 1969). Drawing inspiration from standardized assessments like the Test of Visual Perception Skills (TVPS) and Motor-Free Visual Perception Test (MVPT), our benchmark adapts these principles to create a systematic evaluation methodology for MLLMs.</p>
-      <p>Our benchmark evaluates MLLMs on seven perception-focused subtasks:</p>
+      <p><strong>Do You See Me</strong> is grounded in established human psychology frameworks, which categorize visual perception into five core abilities: visual discrimination, figure-ground perception, spatial relations, closure, and memory.  Our benchmark adapts these principles to systematically evaluate MLLMs across <strong>1,758 images</strong> and <strong>2,612 questions</strong>. </p>
+      <p>The benchmark evaluates MLLMs on seven subtasks designed to mirror these core human skills:</p>
       <ul>
-        <li><strong>Shape Discrimination:</strong> Ability to count specific shapes within a composite image</li>
-        <li><strong>Joint Shape-Color Discrimination:</strong> Ability to count shapes with specific colors</li>
-        <li><strong>Letter Discrimination:</strong> Ability to recognize block-based letters</li>
-        <li><strong>Visual Form Constancy:</strong> Ability to recognize patterns after transformations</li>
-        <li><strong>Visual Spatial:</strong> Ability to locate shapes by coordinates or relative positions</li>
-        <li><strong>Visual Figure-Ground:</strong> Ability to distinguish target pattern from background noise</li>
-        <li><strong>Visual Closure:</strong> Ability to match incomplete shapes with completed targets</li>
+        <li><strong>Shape Discrimination:</strong> Counting specific shapes in a cluttered image. </li>
+        <li><strong>Joint Shape-Color Discrimination:</strong> Counting shapes of specific colors. </li>
+        <li><strong>Letter Disambiguation:</strong> Recognizing textual characters. </li>
+        <li><strong>Visual Form Constancy:</strong> Recognizing a pattern after geometric transformations. </li>
+        <li><strong>Visual Spatial:</strong> Understanding object positions and spatial relationships. </li>
+        <li><strong>Visual Figure-Ground:</strong> Distinguishing a target pattern from background noise. </li>
+        <li><strong>Visual Closure:</strong> Matching incomplete shapes with their complete forms. </li>
       </ul>
-      <p>Our programmatic benchmark allows systematic control of task difficulty parameters, enabling fine-grained analysis of MLLM capabilities.</p>
+      <p>Our fully synthetic and programmatic benchmark allows for fine-grained control over task difficulty, enabling a rigorous analysis of MLLM capabilities. </p>
     </div>
   </section>
 
   <section>
-    <h2>Results</h2>
-
-    <button class="collapsible">Do You See Me Visual Perception Benchmark</button>
+    <h2>Results: A Stark Performance Gap</h2>
+    
+    <button class="collapsible">Overall Performance: MLLM vs. Human</button>
     <div class="content">
-      <p>Our comprehensive evaluation shows that current MLLMs significantly lag behind human performance:</p>
+      <p>Our comprehensive evaluation reveals a stark deficit between MLLM and human visual perception:</p>
       <ul>
-        <li>Humans achieve an average accuracy of <span class="number">94.31%</span> across all seven subtasks</li>
-        <li>The best performing MLLM (Claude Sonnet-3.5) achieves only <span class="number">50.05%</span> accuracy</li>
-        <li>No single model outperforms all others across all visual perception dimensions</li>
+        <li>Humans achieve an average accuracy of <span class="number">96.49%</span> across the benchmark. </li>
+        <li>In stark contrast, the top-performing MLLMs average <span class="number">below 50%</span> accuracy. </li>
+        <li>No single model consistently excels across all perceptual challenges, indicating scattered and unreliable capabilities. </li>
       </ul>
       <div class="results-grid">
         <div class="result-card">
-          <h3>Visual Form Constancy</h3>
-          <p>MLLMs perform relatively well on this task, with Claude Sonnet-3.5 achieving <span class="highlight">91.48%</span> accuracy.</p>
+          <h3>Visual Closure</h3>
+          <p>MLLMs show strong performance in completing partial shapes, with Claude Sonnet-3.5 achieving <span class="highlight">91.48%</span> accuracy. </p>
         </div>
         <div class="result-card">
           <h3>Joint Shape-Color Discrimination</h3>
-          <p>Gemini-1.5 Flash and Qwen2.5-VL-7B-Instruct perform best with accuracies around <span class="highlight">80%</span>.</p>
+          <p>Gemini-1.5 Flash and Qwen2.5-VL-7B-Instruct are top performers in this 2D task, both achieving <span class="highlight">81.86%</span> accuracy. </p>
         </div>
         <div class="result-card">
           <h3>Visual Spatial</h3>
-          <p>Gemini-1.5 achieves the highest accuracy at <span class="highlight">81.86%</span>, followed by Qwen-2.5.</p>
+          <p>Qwen2.5-VL-7B-Instruct leads this 2D category with an accuracy of <span class="highlight">40.69%</span>, though this is still far below human performance. </p>
         </div>
         <div class="result-card">
           <h3>Letter Discrimination</h3>
-          <p>MLLMs struggle significantly, with performance dropping to near zero at medium difficulty levels.</p>
+          <p>MLLMs struggle significantly as task difficulty increases, with performance dropping to near-zero at medium difficulty. </p>
         </div>
       </div>
     </div>
-
-    <button class="collapsible">Human vs MLLM Comparison</button>
+    
+    <button class="collapsible">The Impact of Task Complexity</button>
     <div class="content">
-      <p>As task complexity increases, MLLM performance drops drastically while human performance remains stable. Key observations:</p>
+      <p>As task complexity increases, MLLM performance drops drastically while human performance remains robust.  Key observations:</p>
       <ul>
-        <li>For visual form constancy, the performance gap between humans and closed-source models grows from <span class="number">12%</span> (easy samples) to <span class="number">45%</span> (hard samples)</li>
-        <li>Open-source models consistently lag behind closed-source models across all difficulty levels</li>
-        <li>Human-rated difficulty levels provide valuable insights into the perceptual capabilities of MLLMs</li>
+        <li>For <strong>visual form constancy</strong>, the performance gap between humans and closed-source models widens from <span class="number">12%</span> on easy samples to <span class="number">45%</span> on hard samples. </li>
+        <li>In tasks with background noise (<strong>Visual Figure-Ground</strong>), MLLM accuracy is notably diminished compared to tasks with clean backgrounds. </li>
+        <li>Across all subtasks, MLLM performance consistently declines as the difficulty control parameters increase, often leading to near-zero accuracy in the most challenging settings. </li>
       </ul>
-      <p>In the letter disambiguation task, as difficulty reaches medium level, both closed- and open-source models' performance drops to near zero, while human accuracy remains consistently high.</p>
+    </div>
+  </section>
+  
+  <section>
+    <h2>Root Cause Analysis: Why Do MLLMs Fail?</h2>
+    <p>Our analysis delves into the underlying reasons for these perceptual failures, identifying several fundamental limitations in current MLLM architectures. </p>
+
+    <button class="collapsible">Misallocated Visual Attention</button>
+    <div class="content">
+      <p>We found that MLLMs frequently fail to focus on the parts of an image that are most relevant to a given question.  Our analysis of patch-level attention maps revealed a critical issue:</p>
+      <ul>
+        <li>Models often direct only sparse attention—around <span class="highlight">10%</span>—towards query-relevant object regions. </li>
+      </ul>
+      <p>This failure to engage with crucial visual details severely limits their ability to ground language queries in visual evidence, representing a major perceptual bottleneck. </p>
     </div>
 
-    <button class="collapsible">Effects of Increasing Visual Stimuli Difficulty</button>
+    <button class="collapsible">Instability at Fine-Grained Resolutions</button>
     <div class="content">
-      <p>Our programmatic benchmark allows systematic control of task difficulty parameters. We observe:</p>
+      <p>MLLMs struggle to interpret fine-grained visual details, especially for objects that are near or below the resolution of their visual encoder's patches (typically 14x14 pixels). </p>
       <ul>
-        <li>MLLMs perform well on simple visual tasks but fail dramatically as complexity increases</li>
-        <li>Performance deteriorates significantly when tasks incorporate occlusion or noise around critical visual areas</li>
-        <li>Tasks involving overlapping shapes or low contrast present significant challenges for current MLLMs</li>
+        <li>We observed a significant decline in task accuracy as object sizes approached or fell below this patch resolution. </li>
+        <li>For example, detecting a subtle 1° rotation was impossible for objects smaller than twice the patch size but trivial for larger objects. </li>
       </ul>
-      <p>For example, in visual figure-ground tasks, adding background noise results in approximately a <span class="number">50%</span> performance drop for top-performing models compared to similar form constancy tasks without noise.</p>
+      <p>This suggests a fundamental constraint in current encoders, limiting their ability to robustly interpret small objects or intricate details. </p>
+    </div>
+    
+    <button class="collapsible">Limited Gains from Supervised Finetuning (SFT)</button>
+    <div class="content">
+      <p>To test if more training data could solve these issues, we finetuned a model on over 67,000 new image-text pairs from our benchmark.  The results were modest:</p>
+      <ul>
+        <li>SFT improved the model's average accuracy by approximately <span class="highlight">11%</span> (from 40.91% to 51.75%). </li>
+        <li>Despite these gains, the finetuned model's performance remained significantly below the human accuracy of 96.49%. </li>
+      </ul>
+      <p>This suggests that merely scaling up SFT with more benchmark-like data is insufficient to overcome these fundamental visual perception limitations. </p>
+    </div>
+    
+    <button class="collapsible">2D vs. 3D Performance Disparity</button>
+    <div class="content">
+      <p>We found that MLLM perceptual performance exhibited significant and often unpredictable variance when transitioning between 2D and 3D settings. </p>
+      <ul>
+        <li>Strong proficiency in a 2D subtask did not reliably translate to similar efficacy in its 3D counterpart, and vice-versa. </li>
+      </ul>
+      <p>This indicates that MLLM perception is not abstract but is heavily influenced by the nature of the training data (e.g., vast amounts of real-world, inherently 3D data). </p>
     </div>
   </section>
 
   <section>
     <h2>Conclusion</h2>
-    <p>Our study highlights the importance of developing more perceptually grounded MLLMs to reduce hallucinations and ensure reliable performance on visual reasoning tasks.</p>
-    <p>Results on the Do You See Me benchmark clearly indicate that MLLMs fare poorly on visual perception skills and exhibit a large gap in performance when compared to humans. This suggests an urgent need to improve visual perception capabilities in MLLMs, independently from high-level reasoning.</p>
-    <p>The programmatic, scalable, and complexity-controlled approach used in our benchmark is suitable not only for evaluations but also for synthetic training data creation to improve visual perception capabilities in MLLMs.</p>
+    <p>Our study reveals a stark deficit in the visual perception abilities of contemporary MLLMs. These models often fail to perceive fine-grained visual details, misallocate attention, and cannot reliably overcome these issues even with targeted finetuning. </p>
+    <p>The results on the <strong>Do You See Me</strong> benchmark clearly indicate an urgent need to improve foundational visual skills in MLLMs, independently from high-level reasoning.  Enhancing these perceptual capabilities is paramount for reducing hallucinations, improving reasoning, and building more reliable MLLMs for real-world applications. </p>
+    <p>The programmatic, scalable, and complexity-controlled approach of our benchmark offers a valuable resource for both evaluating current models and guiding the development of more perceptually grounded MLLMs. </p>
   </section>
 
-  <footer>
-    <!-- © 2025 Do You See Me | Microsoft Research<br> -->
+   <section>
+    <h2>Citation</h2>
+    <p>If you find our work useful, please consider citing our paper:</p>
+    <pre class="citation-box"><code>@misc{kanade2025multidimensionalbenchmarkevaluating,
+      title={Do You See Me : A Multidimensional Benchmark for Evaluating Visual Perception in Multimodal LLMs}, 
+      author={Aditya Kanade and Tanuja Ganu},
+      year={2025},
+      eprint={2506.02022},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2506.02022}, 
+}</code></pre>
+  </section>
 
-    <div style="border: 1px solid black; padding: 10px;">
-      <a href="https://support.microsoft.com/contactus" style="color: #008080; text-decoration: none;">Contact Us</a> | 
-      <a href="https://go.microsoft.com/fwlink/?LinkId=521839" style="color: #008080; text-decoration: none;">Privacy & Cookies</a> | 
-      <a href="https://go.microsoft.com/fwlink/?LinkId=521839" style="color: #008080; text-decoration: none;">Consumer Health Privacy</a> | 
-      <a href="https://go.microsoft.com/fwlink/?LinkID=246338" style="color: #008080; text-decoration: none;">Terms of Use</a> | 
-      Code of Conduct | 
-      <a href="https://go.microsoft.com/fwlink/?linkid=2196228%20" style="color: #008080; text-decoration: none;">Trademarks</a> | 
-      © <span id="current-year">2025</span>
+
+  <footer>
+    <div>
+        <a href="https://support.microsoft.com/contactus">Contact Us</a> | 
+        <a href="https://go.microsoft.com/fwlink/?LinkId=521839">Privacy &amp; Cookies</a> | 
+        <a href="https://go.microsoft.com/fwlink/?LinkId=521839">Consumer Health Privacy</a> | 
+        <a href="https://go.microsoft.com/fwlink/?LinkID=246338">Terms of Use</a> | 
+        <a href="https://go.microsoft.com/fwlink/?linkid=2196228%20">Trademarks</a> | 
+        &copy; <span id="current-year">2025</span> Microsoft
     </div>
   </footer>
-
-
-
-
 
   <script>
     // Collapsible Box Logic
@@ -441,6 +497,9 @@
         }
       });
     });
+
+    // Set current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
   </script>
 
 </body>
